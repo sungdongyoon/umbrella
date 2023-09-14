@@ -15,6 +15,7 @@ const Container = styled.div`
 const Content = styled.div`
   span {
     font-weight: bold;
+    font-size: 10px;
   }
 `;
 

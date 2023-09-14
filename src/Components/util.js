@@ -3,11 +3,13 @@ import MainWelcome2 from "../img/main_welcome_2.jpg";
 import MainWelcome3 from "../img/main_welcome_3.jpg";
 import MainIssue1 from "../img/main_issue_1.jpg";
 import MainIssue2 from "../img/main_issue_2.jpg";
+import MainIssue3 from "../img/main_issue_3.jpg";
 import MainSolution1 from "../img/main_solution_1.jpg";
 import MainSolution2 from "../img/main_solution_2.jpg";
 import MainSolution3 from "../img/main_solution_3.jpg";
 import MainLast1 from "../img/main_last_1.png";
 import MainLast2 from "../img/main_last_2.png";
+
 
 export const getMainImg = (mainId) => {
   const targetMainImg = String(mainId);
@@ -23,14 +25,16 @@ export const getMainImg = (mainId) => {
     case "5":
       return MainIssue2;
     case "6":
-      return MainSolution1;
+      return MainIssue3;
     case "7":
-      return MainSolution2;
+      return MainSolution1;
     case "8":
-      return MainSolution3;
+      return MainSolution2;
     case "9":
-      return MainLast1;
+      return MainSolution3;
     case "10":
+      return MainLast1;
+    case "11":
       return MainLast2;
     default:
       return null;

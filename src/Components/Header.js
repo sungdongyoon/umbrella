@@ -28,11 +28,10 @@ const Navigation = styled.ul`
   justify-content: flex-end;
   gap: 50px;
   color: ${(props) => props.scrollPosition > 100 ? "#8EAC50" : "#fff"};
-  font-weight: ${(props) => props.scrollPosition > 100 ? "bold" : "normal"};
 `;
 
 const NavBtn = styled.li`
-  font-size: 20px;
+  font-size: 16px;
   cursor: pointer;
 `;
 

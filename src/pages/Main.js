@@ -29,7 +29,7 @@ const MainWelcome = styled.div`
 `;
 
 const MainText = styled.span`
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
   color: #fff;
   line-height: 50px;
@@ -41,7 +41,7 @@ const MainText = styled.span`
 `;
 
 const SubText = styled.span`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   color: #fff;
   line-height: 30px;
@@ -72,6 +72,19 @@ const EnvironmentIssue = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: url(${getMainImg(5)});
+  background-size: cover;
+  background-position: bottom;
+  position: relative;
+  &::after {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 `;
 
 const Issue = styled.div`
@@ -79,12 +92,11 @@ const Issue = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #F5F5F5;
-  margin-bottom: 50px;
+  z-index: 1;
 `;
 
 const IssueWrap = styled.div`
-  width: 70%;
+  width: 60%;
   height: 90%;
   display: flex;
   .image {
@@ -105,23 +117,26 @@ const IssueWrap = styled.div`
     align-items: center;
     gap: 30px;
     position: relative;
+    color: #fff;
     h1 {
-      font-size: 40px;
+      font-size: 30px;
       font-weight: bold;
     }
     span {
-      font-size: 20px;
+      font-size: 16px;
       text-align: right;
+      font-weight: bold;
     }
     b {
-      color: crimson;
+      color: orange;
       font-weight: bold;
     }
     .source {
-      font-size: 14px;
+      font-size: 10px;
       position: absolute;
-      right: 10%;
-      bottom: 10%;
+      left: 50%;
+      bottom: 20%;
+      transform: translateX(-50%);
     }
   }
 `;
@@ -142,7 +157,7 @@ const AdvantageWrap = styled.div`
   align-items: center;
   position: relative;
   h1 {
-    font-size: 50px;
+    font-size: 30px;
     font-weight: bold;
     color: #8EAC50;
     position: absolute;
@@ -168,7 +183,7 @@ const Advantage = styled.div`
     h3 {
       color: #fff;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 18px;
       margin-bottom: 20px;
     }
     span {
@@ -199,7 +214,7 @@ const MainLastWrap = styled.div`
     position: absolute;
     top: -15%;
     right: 0;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     color: #8EAC50;
   }
@@ -222,7 +237,7 @@ const MainLast = styled.div`
     span {
       color: #fff;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 16px;
     }
     button {
       width: 100%;
@@ -231,6 +246,7 @@ const MainLast = styled.div`
       border: none;
       border-radius: 5px;
       background-color: #000;
+      cursor: pointer;
     }
   }
   .mainlast_desc_first {
@@ -297,7 +313,7 @@ const Main = () => {
               </span>
             </div>
             <div className='image'>
-              <img src={getMainImg(5)}/>
+              <img src={getMainImg(6)}/>
             </div>
           </IssueWrap>
         </Issue>
@@ -306,7 +322,7 @@ const Main = () => {
         <AdvantageWrap>
           <h1>공유우산을 사용한다면?</h1>
           <Advantage>
-            <img src={getMainImg(6)}/>
+            <img src={getMainImg(7)}/>
             <div className='advantage_desc'>
               <h3>10회 이용시 탄소 절감 효과</h3>
               <span>
@@ -316,7 +332,7 @@ const Main = () => {
             </div>
           </Advantage>
           <Advantage>
-            <img src={getMainImg(7)}/>
+            <img src={getMainImg(8)}/>
             <div className='advantage_desc'>
               <h3>나무 한그루의 탄소 절감효과</h3>
               <span>
@@ -326,7 +342,7 @@ const Main = () => {
             </div>
           </Advantage>
           <Advantage>
-            <img src={getMainImg(8)}/>
+            <img src={getMainImg(9)}/>
             <div className='advantage_desc'>
               <h3>환경 친화적인 업사이클 우산</h3>
               <span>
@@ -341,14 +357,14 @@ const Main = () => {
         <MainLastWrap>
           <h1>우산있어? 와 함께 환경을 지켜봐요!</h1>
           <MainLast>
-            <img src={getMainImg(9)}/>
+            <img src={getMainImg(10)}/>
             <div className='mainlast_desc mainlast_desc_first'>
               <span>우산있어? 와 함께해요!</span>
               <button>회원가입 하러 가기</button>
             </div>
           </MainLast>
           <MainLast>
-            <img src={getMainImg(10)}/>
+            <img src={getMainImg(11)}/>
             <div className='mainlast_desc mainlast_desc_second'>
               <span>대여할 수 있는 곳은?</span>
               <button>대여소 확인하러 가기</button>
