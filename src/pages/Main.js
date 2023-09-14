@@ -36,7 +36,7 @@ const MainText = styled.span`
   text-align: center;
   z-index: 1;
   b {
-    color: yellow;
+    color: #8EAC50;
   }
 `;
 
@@ -61,7 +61,7 @@ const Slogan = styled.div`
     font-size: 50px;
     line-height: 80px;
     b {
-      color: skyblue;
+      color: #8EAC50;
     }
   }
 `;
@@ -69,7 +69,6 @@ const Slogan = styled.div`
 const EnvironmentIssue = styled.div`
   width: 100%;
   height: 120vh;
-  background-color: powderblue;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,6 +79,8 @@ const Issue = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #F5F5F5;
+  margin-bottom: 50px;
 `;
 
 const IssueWrap = styled.div`
@@ -93,6 +94,7 @@ const IssueWrap = styled.div`
     align-items: center;
     img {
       width: 70%;
+      border-radius: 10px;
     }
   }
   .content {
@@ -102,6 +104,7 @@ const IssueWrap = styled.div`
     justify-content: center;
     align-items: center;
     gap: 30px;
+    position: relative;
     h1 {
       font-size: 40px;
       font-weight: bold;
@@ -111,8 +114,14 @@ const IssueWrap = styled.div`
       text-align: right;
     }
     b {
-      color: red;
+      color: crimson;
       font-weight: bold;
+    }
+    .source {
+      font-size: 14px;
+      position: absolute;
+      right: 10%;
+      bottom: 10%;
     }
   }
 `;
@@ -135,7 +144,7 @@ const AdvantageWrap = styled.div`
   h1 {
     font-size: 50px;
     font-weight: bold;
-    color: #ccc;
+    color: #8EAC50;
     position: absolute;
     top: -20%;
     left: 0;
@@ -172,7 +181,6 @@ const Advantage = styled.div`
 const MainLastContent = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: yellow;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -193,7 +201,7 @@ const MainLastWrap = styled.div`
     right: 0;
     font-size: 40px;
     font-weight: bold;
-    color: #ccc;
+    color: #8EAC50;
   }
 `;
 
@@ -202,6 +210,7 @@ const MainLast = styled.div`
   position: relative;
   img {
     width: 100%;
+    border-radius: 10px;
   }
   .mainlast_desc {
     display: flex;
@@ -266,7 +275,7 @@ const Main = () => {
                 국내의 <b>연간 우산 판매량은 약 5,000만개</b>이며<br/>
                 <b>우산의 폐기량은 연 2천억원</b>에 달한다고 합니다.
               </span>
-              <span>
+              <span className='source'>
                 (한국일보, 2021)<br/>
                 (위드인뉴스, 2022)
               </span>
@@ -283,7 +292,7 @@ const Main = () => {
                 <b>연간 유해가스의 경우 276만톤</b>이 나오며<br/>
                 <b>연간 탄소 배출은 8만톤</b>이 나옵니다.
               </span>
-              <span>
+              <span className='source'>
                 (중앙일보, 유니콘 팩토리)
               </span>
             </div>

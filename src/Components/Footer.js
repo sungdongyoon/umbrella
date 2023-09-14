@@ -2,19 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
+  width: 30%;
   height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #ccc;
+  border-top: 1px solid #000;
 `;
 
 const Content = styled.div`
-
+  span {
+    font-weight: bold;
+  }
 `;
 
 const Footer = () => {
