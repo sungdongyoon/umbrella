@@ -4,7 +4,7 @@ import LogoImg from "../img/iconLogo.svg";
 import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
-  height: 100px;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
