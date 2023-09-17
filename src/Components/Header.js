@@ -27,7 +27,7 @@ const Navigation = styled.ul`
   display: flex;
   justify-content: flex-end;
   gap: 50px;
-  color: ${(props) => props.scrollPosition > 100 ? "#8EAC50" : "#fff"};
+  color: ${(props) => props.scrollPosition > 100 ? "#87C700" : "#fff"};
 `;
 
 const NavBtn = styled.li`

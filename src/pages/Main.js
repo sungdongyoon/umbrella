@@ -36,7 +36,7 @@ const MainText = styled.span`
   text-align: center;
   z-index: 1;
   b {
-    color: #8EAC50;
+    color: #87C700;
   }
 `;
 
@@ -61,7 +61,7 @@ const Slogan = styled.div`
     font-size: 50px;
     line-height: 80px;
     b {
-      color: #8EAC50;
+      color: #87C700;
     }
   }
 `;
@@ -159,7 +159,7 @@ const AdvantageWrap = styled.div`
   h1 {
     font-size: 30px;
     font-weight: bold;
-    color: #8EAC50;
+    color: #87C700;
     position: absolute;
     top: -20%;
     left: 0;
@@ -216,7 +216,7 @@ const MainLastWrap = styled.div`
     right: 0;
     font-size: 30px;
     font-weight: bold;
-    color: #8EAC50;
+    color: #87C700;
   }
 `;
 
