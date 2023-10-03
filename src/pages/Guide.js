@@ -11,7 +11,7 @@ const Container = styled.div`
 `;
 
 const Wrap = styled.div`
-  width: 60%;
+  width: 70%;
   height: 50%;
 `;
 
@@ -46,6 +46,7 @@ const Content = styled.div`
 
 const HowTo = styled.div`
   height: 70%;
+  width: 100%;
   display: flex;
 `;
 
@@ -59,27 +60,39 @@ const HowToRentReturn = styled.div`
     width: 90%;
     height: 50%;
     span {
-      font-size: 12px;
+      font-size: 14px;
       font-weight: bold;
     }
-    div {
-      width: 100%;
-      height: 100%;
+    .howToTitle {
       display: flex;
-      justify-content: center;
       align-items: center;
+      gap: 5px;
+    }
+    .point {
+      width: 7px;
+      height: 7px;
+      background-color: #87C700;
+      border-radius: 50%;
     }
     .howToContent {
+      width: 100%;
+      height: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       div {
-        width: 90px;
-        height: 90px;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border-radius: 50%;
         background-color: #87C700;
+        color: #fff;
         font-size: 10px;
         font-weight: bold;
+        text-align: center;
+        line-height: 15px;
       }
     }
   }
@@ -93,29 +106,35 @@ const Guide = () => {
           <Title>대여 및 반납 안내</Title>
           <Content>
             <span>우산있어?는 다양한 곳에서 여러분을 기다리고 있습니다.</span>
-            <span>우산있어? 대여소 어디에서든 우산 반납이 가능합니다.</span>
+            <span>대여소 어디에서든 우산 대여와 반납이 가능합니다.</span>
           </Content>
         </Comment>
         <HowTo>
           <HowToRentReturn>
             <div className='howToWrap'>
-              <span>대여방법</span>
+              <div className='howToTitle'>
+                <div className='point'></div>
+                <span>대여방법</span>
+              </div>
               <div className='howToContent'>
-                <div>우산 대여 방법</div>
-                <div>우산 대여 방법</div>
-                <div>우산 대여 방법</div>
-                <div>우산 대여 방법</div>
+                <div>이용권 구매</div>
+                <div>QR 코드 스캔 및<br/> 우산 번호 입력</div>
+                <div>잠금장치 해제</div>
+                <div>우산 대여 완료</div>
               </div>
             </div>
           </HowToRentReturn>
           <HowToRentReturn>
             <div className='howToWrap'>
-              <span>반납방법</span>
+              <div className='howToTitle'>
+                <div className='point'></div>
+                <span>반납방법</span>
+              </div>
               <div className='howToContent'>
-                <div>우산 반납 방법</div>
-                <div>우산 반납 방법</div>
-                <div>우산 반납 방법</div>
-                <div>우산 반납 방법</div>
+                <div>대여소 방문</div>
+                <div>비어있는 우산 꽂이 번호 선택</div>
+                <div>우산 꽂이에<br/> 우산 반납</div>
+                <div>우산 반납 완료</div>
               </div>
             </div>
           </HowToRentReturn>

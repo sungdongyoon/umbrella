@@ -19,7 +19,7 @@ const Container = styled.div`
 
 const Logo = styled.img`
   width: 200px;
-  filter: invert(1);
+  // filter: invert(1);
   cursor: pointer;
 `;
 
@@ -27,7 +27,7 @@ const Navigation = styled.ul`
   display: flex;
   justify-content: flex-end;
   gap: 50px;
-  color: ${(props) => props.scrollPosition > 100 ? "#87C700" : "#fff"};
+  color: ${(props) => props.scrollPosition > 100 ? "#87C700" : "#000"};
 `;
 
 const NavBtn = styled.li`
