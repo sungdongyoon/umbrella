@@ -11,7 +11,7 @@ const Container = styled.div`
 
 const Wrap = styled.div`
   width: 40%;
-  height: 55%;
+  height: 50%;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -92,12 +92,13 @@ const LoginForm = styled.form`
       }
     }
     button {
+      width: 100%;
       flex: 3;
       border: none;
       border-radius: 5px;
       background-color: #87C700;
       color: #fff;
-      font-size: 18px;
+      font-size: 15px;
       letter-spacing: 3px;
       cursor: pointer;
     }
