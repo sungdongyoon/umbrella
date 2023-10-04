@@ -132,7 +132,7 @@ const Guide = () => {
               </div>
               <div className='howToContent'>
                 <div>대여소 방문</div>
-                <div>비어있는 우산 꽂이 번호 선택</div>
+                <div>비어있는 우산 꽂이<br/> 번호 선택</div>
                 <div>우산 꽂이에<br/> 우산 반납</div>
                 <div>우산 반납 완료</div>
               </div>
