@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -26,6 +27,7 @@ const LoginTitle = styled.div`
   margin-bottom: 30px;
   h1 {
     font-size: 25px;
+    font-weight: bold;
   }
 `;
 
@@ -134,6 +136,24 @@ const SearchIdPw = styled.div`
 
 
 const Login = () => {
+  const [idValue, setIdValue] = useState("");
+  const [pwValue, setPwValue] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(idValue.length > 3) {
+      if(pwValue.length > 5) {
+        alert(`반갑습니다, ${idValue}님`);
+        navigate("/");
+      } else {
+        alert(`비밀번호를 정확하게 입력해주세요`);
+      }
+    } else {
+      alert("아이디를 정확하게 입력해주세요");
+    }
+  }
   return (
     <Container>
       <Wrap>
@@ -149,15 +169,15 @@ const Login = () => {
               <span>비회원</span>
             </div>
           </SelectMember>
-          <LoginForm>
+          <LoginForm onSubmit={handleSubmit}>
             <div className='loginWrap'>
               <div className='inputWrap'>
-                <label for="id">ID</label>
-                <input id='id' type='text'/>
+                <label htmlFor="id">ID</label>
+                <input id='id' type='text' value={idValue} onChange={(e) => setIdValue(e.target.value)}/>
               </div>
               <div className='inputWrap'>
-                <label for="pw">PW</label>
-                <input id='pw' type='password'/>
+                <label htmlFor="pw">PW</label>
+                <input id='pw' type='password' value={pwValue} onChange={(e) => setPwValue(e.target.value)}/>
               </div>
               <button>로그인</button>
             </div>
