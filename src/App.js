@@ -8,6 +8,7 @@ import Ticket from './pages/Ticket';
 import Profile from './pages/Profile';
 import LeftoverTicket from './pages/LeftoverTicket';
 import Map from './pages/Map';
+import Faq from './pages/Faq';
 import Rental from './pages/Rental';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
@@ -33,6 +34,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/ticket' element={<Ticket/>}/>
         <Route path='/map' element={<Map/>}/>
+        <Route path='/faq' element={<Faq/>}/>
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/leftoverticket' element={<LeftoverTicket/>}/>
         <Route path='/rental' element={<Rental/>}/>
