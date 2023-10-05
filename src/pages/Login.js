@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import userContext from '../context';
 
 const Container = styled.div`
   width: 100%;
@@ -135,17 +136,21 @@ const SearchIdPw = styled.div`
 `;
 
 
+
 const Login = () => {
   const [idValue, setIdValue] = useState("");
   const [pwValue, setPwValue] = useState("");
 
+  const {setUserValue} = useContext(userContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(idValue.length > 3) {
-      if(pwValue.length > 5) {
+    if(idValue.length > 1) {
+      if(pwValue.length > 1) {
         alert(`반갑습니다, ${idValue}님`);
+        setUserValue(idValue);
+        console.log("login", idValue);
         navigate("/");
       } else {
         alert(`비밀번호를 정확하게 입력해주세요`);

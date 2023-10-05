@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import LogoImg from "../img/iconLogo.svg";
 import { useNavigate } from 'react-router-dom';
+import userContext from '../context';
 
 const Container = styled.div`
   height: 80px;
@@ -33,9 +34,17 @@ const Navigation = styled.ul`
 const NavBtn = styled.li`
   font-size: 16px;
   cursor: pointer;
+  span {
+    font-size: 12px;
+    b {
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
 `;
 
 const Header = () => {
+  const {userValue} = useContext(userContext);
   const navigation = useNavigate();
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -49,7 +58,10 @@ const Header = () => {
     <Container scrollPosition={scrollPosition}>
       <Logo onClick={() => navigation('/')} src={LogoImg}/>
       <Navigation scrollPosition={scrollPosition}>
-        <NavBtn onClick={() => navigation('/login')}>Login</NavBtn>
+        {!userValue ? 
+          <NavBtn onClick={() => navigation('/login')}>Login</NavBtn> :
+          <NavBtn onClick={() => navigation('/profile')}><span>반갑습니다, <b>{userValue}</b>님</span></NavBtn>
+        }
         <NavBtn onClick={() => navigation('/guide')}>Guide</NavBtn>
         <NavBtn onClick={() => navigation('/ticket')}>Ticket</NavBtn>
         <NavBtn onClick={() => navigation('/map')}>Map</NavBtn>
