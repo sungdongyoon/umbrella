@@ -18,14 +18,14 @@ const Wrap = styled.div`
   align-items: center;
 `;
 
-const Profile = () => {
+const TicketGuest = () => {
   return (
     <Container>
       <Wrap>
-        Profile
+        비회원 이용권 구매 페이지
       </Wrap>
     </Container>
   )
 }
 
-export default Profile;
+export default TicketGuest;

@@ -5,6 +5,8 @@ import Main from './pages/Main';
 import Guide from './pages/Guide';
 import Login from './pages/Login';
 import Ticket from './pages/Ticket';
+import TicketMember from './pages/TicketMember';
+import TicketGuest from './pages/TicketGuest';
 import Profile from './pages/Profile';
 import LeftoverTicket from './pages/LeftoverTicket';
 import Map from './pages/Map';
@@ -33,6 +35,8 @@ function App() {
         <Route path='/guide' element={<Guide/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/ticket' element={<Ticket/>}/>
+        <Route path='/member' element={<TicketMember/>}/>
+        <Route path='/guest' element={<TicketGuest/>}/>
         <Route path='/map' element={<Map/>}/>
         <Route path='/faq' element={<Faq/>}/>
         <Route path='/profile' element={<Profile/>}/>

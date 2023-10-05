@@ -1,5 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import userContext from '../context';
+import TicketMember from './TicketMember';
 
 const Container = styled.div`
   width: 100%;
@@ -67,18 +70,23 @@ const SelectMember = styled.div`
 `;
 
 const Ticket = () => {
+  const {userValue} = useContext(userContext);
+  const navigate = useNavigate();
   return (
     <Container>
-      <Wrap>
-        <SelectMember>
-          <span>회원이신가요?</span>
-          <span>로그인 하러 가기</span>
-        </SelectMember>
-        <SelectMember>
-          <span>비회원이신가요?</span>
-          <span>비회원 이용권 구매</span>
-        </SelectMember>
-      </Wrap>
+      {!userValue ?
+        <Wrap>
+          <SelectMember onClick={() => navigate('/login')}>
+            <span>회원이신가요?</span>
+            <span>로그인 하러 가기</span>
+          </SelectMember>
+          <SelectMember onClick={() => navigate('/guest')}>
+            <span>비회원이신가요?</span>
+            <span>비회원 이용권 구매</span>
+          </SelectMember>
+        </Wrap> :
+        <TicketMember/>
+      }
     </Container>
   )
 }
