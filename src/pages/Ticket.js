@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import userContext from '../context';
+import { userContext } from '../context';
 import TicketMember from './TicketMember';
 
 const Container = styled.div`

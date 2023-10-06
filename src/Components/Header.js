@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import LogoImg from "../img/iconLogo.svg";
 import { useNavigate } from 'react-router-dom';
-import userContext from '../context';
+import { userContext } from '../context';
 
 const Container = styled.div`
   height: 80px;

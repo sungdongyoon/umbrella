@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import userContext from '../context';
+import { userContext } from '../context';
 
 const Container = styled.div`
   width: 100%;

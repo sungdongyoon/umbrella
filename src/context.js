@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 const userContext = createContext();
 
-export function UserContextProvider({children}) {
+const UserContextProvider = ({children}) => {
   const [userValue, setUserValue] = useState("");
   return (
     <userContext.Provider value={{userValue, setUserValue}}>
@@ -11,4 +11,4 @@ export function UserContextProvider({children}) {
   )
 }
 
-export default userContext;
+export {userContext, UserContextProvider};

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -129,10 +130,33 @@ const TicketModal = styled.div`
 `;
 
 const TicketMember = () => {
+  const oneRef = useRef();
+  const twoRef = useRef();
+  const threeRef = useRef();
+
+  const navigate = useNavigate();
   const [isTicket, setIsTicket] = useState(false);
+  // const [isChecked, setIsChecked] = useState(true);
+
   const ticketModal = (value) => {
     setIsTicket(value);
   }
+
+  const completeTicket = () => {
+    const firstAgree = oneRef.current.checked;
+    const secondAgree = twoRef.current.checked;
+    const thirdAgree = threeRef.current.checked;
+
+    if(firstAgree && secondAgree && thirdAgree) {
+      alert("결제가 완료되었습니다!");
+      navigate("/");
+    }
+  }
+
+  // const clickCheckbox = (e) => {
+  //   setIsChecked(e.target.checked);
+  // };
+
   return (
     <Container>
       <Wrap>
@@ -161,15 +185,15 @@ const TicketMember = () => {
                   <div className='option_title'>결제수단</div>
                   <div className='option_content'>
                     <div className='option_payment'>
-                      <input type='radio' id='card' name='payment'/>
+                      <input type='radio' id='card' name='payment' checked/>
                       <label htmlFor='card'>카드</label>
                     </div>
                     <div className='option_payment'>
-                      <input type='radio' id='kakao' name='payment'/>
+                      <input type='radio' id='kakao' name='payment' checked/>
                       <label htmlFor='kakao'>카카오페이</label>
                     </div>
                     <div className='option_payment'>
-                      <input type='radio' id='naver' name='payment'/>
+                      <input type='radio' id='naver' name='payment' checked/>
                       <label htmlFor='naver'>네이버페이</label>
                     </div>
                   </div>
@@ -177,22 +201,22 @@ const TicketMember = () => {
               </div>
               <div className='agrees'>
                 <div className='agree'>
-                  <input type='checkbox' id='agree1'/>
+                  <input type='checkbox' id='agree1' ref={oneRef}/>
                   <label htmlFor='agree1'>우산있어? 이용약관 동의</label>
                 </div>
                 <div className='agree'>
-                  <input type='checkbox' id='agree2'/>
+                  <input type='checkbox' id='agree2' ref={twoRef}/>
                   <label htmlFor='agree2'>개인정보 수집 및 이용 동의</label>
                 </div>
                 <div className='agree'>
-                  <input type='checkbox' id='agree3'/>
+                  <input type='checkbox' id='agree3' ref={threeRef}/>
                   <label htmlFor='agree3'>개인정보 수집 및 이용 동의</label>
                 </div>
               </div>
             </div>
             <div className='buttons'>
               <button onClick={() => ticketModal(false)}>닫기</button>
-              <button>결제하기</button>
+              <button onClick={() => completeTicket()}>결제하기</button>
             </div>
           </TicketModal>
         }
