@@ -156,7 +156,7 @@ const Modal = ({ticketModal}) => {
             <div className='option_title'>결제수단</div>
             <div className='option_content'>
               <div className='option_payment'>
-                <input type='radio' id='card' name='payment'/>
+                <input type='radio' id='card' name='payment' defaultChecked/>
                 <label htmlFor='card'>카드</label>
               </div>
               <div className='option_payment'>
