@@ -120,17 +120,20 @@ const Modal = ({ticketModal}) => {
   const threeRef = useRef();
 
   const navigate = useNavigate();
-
   const [btnDisabled, setBtnDisabled] = useState(true);
 
   const completeTicket = () => {
-    const firstAgree = oneRef.current.checked;
-    const secondAgree = twoRef.current.checked;
-    const thirdAgree = threeRef.current.checked;
-
-    if(firstAgree && secondAgree && thirdAgree) {
+    if(oneRef.current.checked && twoRef.current.checked && threeRef.current.checked) {
       alert("결제가 완료되었습니다!");
       navigate("/");
+    }
+  };
+
+  const agreeClick = () => {
+    if(oneRef.current.checked && twoRef.current.checked && threeRef.current.checked) {
+      setBtnDisabled(false);
+    } else {
+      setBtnDisabled(true);
     }
   };
 
@@ -169,22 +172,22 @@ const Modal = ({ticketModal}) => {
         </Options>
         <Agrees>
           <Agree>
-            <input type='checkbox' id='agree1' ref={oneRef}/>
+            <input type='checkbox' id='agree1' ref={oneRef} onClick={() => agreeClick()}/>
             <label htmlFor='agree1'>우산있어? 이용약관 동의</label>
           </Agree>
           <Agree>
-            <input type='checkbox' id='agree2' ref={twoRef}/>
+            <input type='checkbox' id='agree2' ref={twoRef} onClick={() => agreeClick()}/>
             <label htmlFor='agree2'>개인정보 수집 및 이용 동의</label>
           </Agree>
           <Agree>
-            <input type='checkbox' id='agree3' ref={threeRef}/>
+            <input type='checkbox' id='agree3' ref={threeRef} onClick={() => agreeClick()}/>
             <label htmlFor='agree3'>개인정보 수집 및 이용 동의</label>
           </Agree>
         </Agrees>
       </Content>
-      <Buttons>
+      <Buttons disabled={btnDisabled}>
         <button className='close_btn' onClick={() => ticketModal(false)}>닫기</button>
-        <button className='pay_btn' onClick={() => completeTicket()} disabled={!btnDisabled}>결제하기</button>
+        <button className='pay_btn' onClick={() => completeTicket()} disabled={btnDisabled}>결제하기</button>
       </Buttons>
     </Container>
   )
