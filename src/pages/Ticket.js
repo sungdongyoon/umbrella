@@ -70,17 +70,28 @@ const SelectMember = styled.div`
 `;
 
 const Ticket = () => {
-  const {userValue} = useContext(userContext);
+  const {userValue, setLoginState} = useContext(userContext);
   const navigate = useNavigate();
+
+  const memberClick = () => {
+    setLoginState("member");
+    navigate('/login');
+  }
+
+  const guestClick = () => {
+    setLoginState("guest");
+    navigate('/guest');
+  }
+  
   return (
     <Container>
       {!userValue ?
         <Wrap>
-          <SelectMember onClick={() => navigate('/login')}>
+          <SelectMember onClick={() => memberClick()}>
             <span>회원이신가요?</span>
             <span>로그인 하러 가기</span>
           </SelectMember>
-          <SelectMember onClick={() => navigate('/guest')}>
+          <SelectMember onClick={() => guestClick()}>
             <span>비회원이신가요?</span>
             <span>비회원 이용권 구매</span>
           </SelectMember>

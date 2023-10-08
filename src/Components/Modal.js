@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { agreeContext } from '../context';
+import { useContext } from 'react';
+import Agrees from './Agrees';
+import Buttons from './Buttons';
 
 const Container = styled.div`
   width: 50%;
@@ -75,66 +79,18 @@ const Option = styled.div`
   }
 `;
 
-const Agrees = styled.div`
-  padding: 10px;
-  border: 2px solid #999;
-  border-left: none;
-  border-right: none;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Agree = styled.div`
-  display: flex;
-  align-items: center;
-  label {
-    font-size: 12px;
-  }
-`;
-
-const Buttons = styled.div`
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  flex: 2;
-  button {
-    width: 150px;
-    border: none;
-    padding: 10px 0;
-    background-color: #87C700;
-    font-weight: bold;
-    font-size: 16px;
-    color: #fff;
-    cursor: pointer;
-  }
-  .pay_btn {
-    background-color: ${(props) => props.disabled ? "#ccc" : "#87C700"};
-  }
-`;
-
 const Modal = ({ticketModal, ticketType, isTicket}) => {
-  const oneRef = useRef();
-  const twoRef = useRef();
-  const threeRef = useRef();
   const priceRef = useRef();
 
   const navigate = useNavigate();
-  const [btnDisabled, setBtnDisabled] = useState(true);
+
+  const {agreeState, setAgreeState} = useContext(agreeContext);
 
   const completeTicket = () => {
-    if(oneRef.current.checked && twoRef.current.checked && threeRef.current.checked) {
+    if(!agreeState) {
       alert("결제가 완료되었습니다!");
       navigate("/");
-    }
-  };
-
-  const agreeClick = () => {
-    if(oneRef.current.checked && twoRef.current.checked && threeRef.current.checked) {
-      setBtnDisabled(false);
-    } else {
-      setBtnDisabled(true);
+      setAgreeState(true);
     }
   };
 
@@ -164,7 +120,7 @@ const Modal = ({ticketModal, ticketType, isTicket}) => {
           <>
             <Option>
               <div className='option_title'>이용권</div>
-              <select className='option_content' onChange={(e) => typeSelect(ticketType[e.target.value -1].price)}>
+              <select className='option_content' onChange={(e) => typeSelect(ticketType[e.target.value - 1].price)}>
                 {ticketType.map((el) => (
                   <option value={el.id}>{el.title}</option>
                 ))}
@@ -194,25 +150,9 @@ const Modal = ({ticketModal, ticketType, isTicket}) => {
             </div>
           </Option>
         </Options>
-        <Agrees>
-          <Agree>
-            <input type='checkbox' id='agree1' ref={oneRef} onClick={() => agreeClick()}/>
-            <label htmlFor='agree1'>우산있어? 이용약관 동의</label>
-          </Agree>
-          <Agree>
-            <input type='checkbox' id='agree2' ref={twoRef} onClick={() => agreeClick()}/>
-            <label htmlFor='agree2'>개인정보 수집 및 이용 동의</label>
-          </Agree>
-          <Agree>
-            <input type='checkbox' id='agree3' ref={threeRef} onClick={() => agreeClick()}/>
-            <label htmlFor='agree3'>개인정보 수집 및 이용 동의</label>
-          </Agree>
-        </Agrees>
+        <Agrees/>
       </Content>
-      <Buttons disabled={btnDisabled}>
-        <button className='close_btn' onClick={() => ticketModal("")}>닫기</button>
-        <button className='pay_btn' onClick={() => completeTicket()} disabled={btnDisabled}>결제하기</button>
-      </Buttons>
+      <Buttons ticketModal={ticketModal} completeTicket={completeTicket} agreeState={agreeState}/>
     </Container>
   )
 }
