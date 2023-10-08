@@ -114,10 +114,11 @@ const Buttons = styled.div`
   }
 `;
 
-const Modal = ({ticketModal}) => {
+const Modal = ({ticketModal, ticketType, isTicket}) => {
   const oneRef = useRef();
   const twoRef = useRef();
   const threeRef = useRef();
+  const priceRef = useRef();
 
   const navigate = useNavigate();
   const [btnDisabled, setBtnDisabled] = useState(true);
@@ -137,6 +138,10 @@ const Modal = ({ticketModal}) => {
     }
   };
 
+  const typeSelect = (e) => {
+    priceRef.current.innerText = e;
+  }
+
   return (
     <Container>
       <Title>
@@ -144,14 +149,33 @@ const Modal = ({ticketModal}) => {
       </Title>
       <Content>
         <Options>
-          <Option>
-            <div className='option_title'>이용권</div>
-            <div className='option_content'>일일권</div>
-          </Option>
-          <Option>
-            <div className='option_title'>가격</div>
-            <div className='option_content'>700원</div>
-          </Option>
+          {isTicket === "daily" ?
+            <>
+              <Option>
+                <div className='option_title'>이용권</div>
+                <div className='option_content'>{ticketType.title}</div>
+              </Option>
+              <Option>
+                <div className='option_title'>가격</div>
+                <div className='option_content'>{ticketType.price}</div>
+              </Option>
+            </>
+          : isTicket === "season" ? 
+          <>
+            <Option>
+              <div className='option_title'>이용권</div>
+              <select className='option_content' onChange={(e) => typeSelect(ticketType[e.target.value -1].price)}>
+                {ticketType.map((el) => (
+                  <option value={el.id}>{el.title}</option>
+                ))}
+              </select>
+            </Option>
+            <Option>
+              <div className='option_title'>가격</div>
+              <div className='option_content' ref={priceRef}>{ticketType[0].price}</div>
+            </Option>
+          </>
+          : null}
           <Option>
             <div className='option_title'>결제수단</div>
             <div className='option_content'>
@@ -186,7 +210,7 @@ const Modal = ({ticketModal}) => {
         </Agrees>
       </Content>
       <Buttons disabled={btnDisabled}>
-        <button className='close_btn' onClick={() => ticketModal(false)}>닫기</button>
+        <button className='close_btn' onClick={() => ticketModal("")}>닫기</button>
         <button className='pay_btn' onClick={() => completeTicket()} disabled={btnDisabled}>결제하기</button>
       </Buttons>
     </Container>
