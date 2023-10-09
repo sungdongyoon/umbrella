@@ -43,8 +43,10 @@ const Buttons = () => {
   const onClickClose = () => {
     if(loginState === "member") {
       setIsTicket("");
+      setAgreeState(true);
     } else if(loginState === "guest") {
       navigate('/ticket');
+      setAgreeState(true);
     }
   }
 
