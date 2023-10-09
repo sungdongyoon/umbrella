@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { userContext } from '../context';
+import LoginForm from '../Components/LoginForm';
+import LoginSNS from '../Components/LoginSNS';
 
 const Container = styled.div`
   width: 100%;
@@ -53,57 +53,13 @@ const SelectMember = styled.div`
     border-radius: 10px 10px 0 0;
     cursor: pointer;
     &:first-child {
-      border-bottom: none;
+      border-bottom: ${(props) => props.isMemberSns ? "1px solid #fff" : "1px solid #ddd"};
+    }
+    &:last-child {
+      border-bottom: ${(props) => props.isMemberSns ? "1px solid #ddd" : "1px solid #fff"};
     }
     span {
       font-size: 20px;
-    }
-  }
-`;
-
-const LoginForm = styled.form`
-  flex: 6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #ddd;
-  border-top: none;
-  .loginWrap {
-    width: 50%;
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 20%;
-    .inputWrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex: 3;
-      label {
-        width: 20%;
-        font-size: 20px;
-      }
-      input {
-        width: 70%;
-        height: 70%;
-        border: 1px solid #ddd;
-        outline: none;
-        &:focus {
-          border: 2px solid #87C700;
-        }
-      }
-    }
-    button {
-      width: 100%;
-      flex: 3;
-      border: none;
-      border-radius: 5px;
-      background-color: #87C700;
-      color: #fff;
-      font-size: 15px;
-      letter-spacing: 3px;
-      cursor: pointer;
     }
   }
 `;
@@ -138,27 +94,10 @@ const SearchIdPw = styled.div`
 
 
 const Login = () => {
-  const [idValue, setIdValue] = useState("");
-  const [pwValue, setPwValue] = useState("");
-
-  const {setUserValue} = useContext(userContext);
-  const navigate = useNavigate();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if(idValue.length > 1) {
-      if(pwValue.length > 1) {
-        alert(`반갑습니다, ${idValue}님`);
-        setUserValue(idValue);
-        console.log("login", idValue);
-        navigate("/");
-      } else {
-        alert(`비밀번호를 정확하게 입력해주세요`);
-      }
-    } else {
-      alert("아이디를 정확하게 입력해주세요");
-    }
-  }
+  const [isMemberSns, setIsMeberSns] = useState(true);
+  const loginMethod = (value) => {
+    setIsMeberSns(value)
+  };
   return (
     <Container>
       <Wrap>
@@ -166,27 +105,18 @@ const Login = () => {
           <h1>로그인</h1>
         </LoginTitle>
         <LoginWrap>
-          <SelectMember>
-            <div>
+          <SelectMember isMemberSns={isMemberSns}>
+            <div onClick={() => loginMethod(true)} >
               <span>회원</span>
             </div>
-            <div>
-              <span>비회원</span>
+            <div onClick={() => loginMethod(false)}>
+              <span>SNS 간편 로그인</span>
             </div>
           </SelectMember>
-          <LoginForm onSubmit={handleSubmit}>
-            <div className='loginWrap'>
-              <div className='inputWrap'>
-                <label htmlFor="id">ID</label>
-                <input id='id' type='text' value={idValue} onChange={(e) => setIdValue(e.target.value)}/>
-              </div>
-              <div className='inputWrap'>
-                <label htmlFor="pw">PW</label>
-                <input id='pw' type='password' value={pwValue} onChange={(e) => setPwValue(e.target.value)}/>
-              </div>
-              <button>로그인</button>
-            </div>
-          </LoginForm>
+          {isMemberSns ?
+            <LoginForm/> :
+            <LoginSNS/>
+          }
         </LoginWrap>
         <Join>
           <span>
