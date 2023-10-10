@@ -360,7 +360,7 @@ const Main = () => {
             <img src={getMainImg(10)}/>
             <div className='mainlast_desc mainlast_desc_first'>
               <span>우산있어? 와 함께해요!</span>
-              <button>회원가입 하러 가기</button>
+              <button>이용권 구매하러 가기</button>
             </div>
           </MainLast>
           <MainLast>

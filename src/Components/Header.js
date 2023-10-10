@@ -44,7 +44,51 @@ const NavBtn = styled.li`
     b {
       font-size: 14px;
       font-weight: bold;
+    } 
+  }
+  &:nth-child(1) {
+    position: relative;
+  }
+`;
+
+const Profile = styled.div`
+  width: 100%;
+  height: 500%;
+  position: absolute;
+  bottom: -580%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  box-shadow: 1px 1px 3px #333,
+  -1px -1px 3px #ccc;
+  border-radius: 3px;
+  color: #000 !important;
+  ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 12px;
+    li {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
     }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
   }
 `;
 
@@ -56,9 +100,13 @@ const Header = () => {
   const locationPath = location.pathname;
 
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [isProfile, setIsProfile] = useState(false);
+  
+
   const scrollHeader = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
   };
+
   useEffect(() => {
     window.addEventListener("scroll", scrollHeader);
   }, []);
@@ -68,12 +116,27 @@ const Header = () => {
       <Navigation scrollPosition={scrollPosition}>
         {!userValue ? 
           <NavBtn value="/login" location={locationPath} onClick={() => navigation('/login')}>Login</NavBtn> :
-          <NavBtn value="/profile" location={locationPath} onClick={() => navigation('/profile')}><span>반갑습니다, <b>{userValue}</b>님</span></NavBtn>
+          <NavBtn value="/profile" location={locationPath}>
+            <span className='profile' onClick={() => setIsProfile(!isProfile)}>
+              반갑습니다, <b>{userValue}</b>님
+            </span>
+            {isProfile &&
+              <Profile>
+                <ul>
+                  <li>내정보</li>
+                  <li>개인정보 설정</li>
+                  <li>이용권 구매 내역</li>
+                  <li>로그아웃</li>
+                </ul>
+              </Profile>
+            }
+          </NavBtn>
         }
         <NavBtn value="/guide" location={locationPath} onClick={() => navigation('/guide')}>Guide</NavBtn>
         <NavBtn value="/ticket" location={locationPath} onClick={() => navigation('/ticket')}>Ticket</NavBtn>
         <NavBtn value="/map" location={locationPath} onClick={() => navigation('/map')}>Map</NavBtn>
         <NavBtn value="/faq" location={locationPath} onClick={() => navigation('/faq')}>FAQ</NavBtn>
+        
       </Navigation>
     </Container>
   )
