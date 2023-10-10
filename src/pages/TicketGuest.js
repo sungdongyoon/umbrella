@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import styled from 'styled-components';
 import Agrees from '../Components/Agrees';
 import Buttons from '../Components/Buttons';
 import { getSNSImg } from '../Components/util';
+import { agreeContext } from '../context';
 
 const Container = styled.div`
   width: 100%;
@@ -75,7 +76,7 @@ const Option = styled.div`
     padding: 0 30px;
     background-color: rgb(250, 250, 250);
     input[type="number"] {
-      width: 20%;
+      width: 60%;
       border: 1px solid #ccc;
       outline: none;
       padding: 3px 5px;
@@ -115,6 +116,18 @@ const Option = styled.div`
 
 
 const TicketGuest = () => {
+  const {setAgreeState} = useContext(agreeContext);
+  const [numberValue, setNumberValue] = useState("");
+
+  const inputLength = (e) => {
+    if(e.target.value.length > e.target.maxLength) {
+      e.target.value = e.target.value.slice(0, e.target.maxLength);
+    }
+  }
+
+  useEffect(() => {
+    numberValue.length !== 11 && setAgreeState(true);
+  }, [numberValue])
   return (
     <Container>
       <Wrap>
@@ -132,9 +145,7 @@ const TicketGuest = () => {
             <Option>
               <div className='option_title'>전화번호</div>
               <div className='option_content number'>
-                <input type='number'/> -
-                <input type='number'/> -
-                <input type='number'/>
+                <input type='number' onChange={(e) => setNumberValue(e.target.value)} value={numberValue} maxLength={11} onInput={(e) => inputLength(e)} placeholder='전화번호를 입력해주세요(하이픈(-) 제외)'/>
               </div>
             </Option>
             <Option>
@@ -161,7 +172,7 @@ const TicketGuest = () => {
           </div>
         </Content>
         <div className='agreesWrap'>
-          <Agrees/>
+          {numberValue.length === 11 && <Agrees/>}
         </div>
         <Buttons/>
       </Wrap>
