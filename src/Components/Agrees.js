@@ -5,7 +5,7 @@ import { agreeContext } from '../context';
 
 const AgreeWrap = styled.div`
   padding: 10px;
-  border: 2px solid #999;
+  border: 1px solid #ddd;
   border-left: none;
   border-right: none;
   display: flex;

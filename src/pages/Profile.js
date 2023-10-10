@@ -11,8 +11,8 @@ const Container = styled.div`
 
 const Wrap = styled.div`
   border: 1px solid red;
-  width: 40%;
-  height: 50%;
+  width: 50%;
+  height: 60%;
   display: flex;
   justify-content: center;
   align-items: center;

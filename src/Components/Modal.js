@@ -6,6 +6,7 @@ import { agreeContext } from '../context';
 import { useContext } from 'react';
 import Agrees from './Agrees';
 import Buttons from './Buttons';
+import { getSNSImg } from './util';
 
 const Container = styled.div`
   width: 50%;
@@ -17,7 +18,8 @@ const Container = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #eee;
+  background-color: #fff;
+  z-index: 15;
 `;
 
 const Title = styled.div`
@@ -39,7 +41,7 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex: 6;
+  flex: 4;
   div {
     width: 100%;
     height: 50%;
@@ -53,6 +55,8 @@ const Options = styled.div`
 
 const Option = styled.div`
   display: flex;
+  align-items: center;
+  margin-bottom: 10px;
   .option_title {
     flex: 3;
     font-weight: bold;
@@ -61,21 +65,34 @@ const Option = styled.div`
     display: flex;
     gap: 15px;
     flex: 6;
+    color: #555;
     .option_payment {
       width: 100%;
       height: 100%;
       display: flex;
       align-items: center;
-      gap: 5px;
       label {
-        width: 100%;
-        padding: 10px;
+        width: 70%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         border-radius: 5px;
-        background-color: #fff;
+        color: #000;
         font-size: 12px;
+        font-weight: bold;
         text-align: center;
+        cursor: pointer;
+        img{ 
+          width: 70%;
+        }
       }
     }
+  }
+  .option_content_select {
+    flex: 6;
+    height: 30px;
+    outline: none;
   }
 `;
 
@@ -120,7 +137,7 @@ const Modal = ({ticketModal, ticketType, isTicket}) => {
           <>
             <Option>
               <div className='option_title'>이용권</div>
-              <select className='option_content' onChange={(e) => typeSelect(ticketType[e.target.value - 1].price)}>
+              <select className='option_content_select' onChange={(e) => typeSelect(ticketType[e.target.value - 1].price)}>
                 {ticketType.map((el) => (
                   <option value={el.id}>{el.title}</option>
                 ))}
@@ -137,15 +154,19 @@ const Modal = ({ticketModal, ticketType, isTicket}) => {
             <div className='option_content'>
               <div className='option_payment'>
                 <input type='radio' id='card' name='payment' defaultChecked/>
-                <label htmlFor='card'>카드</label>
+                <label htmlFor='card'>신용/체크카드</label>
               </div>
               <div className='option_payment'>
                 <input type='radio' id='kakao' name='payment'/>
-                <label htmlFor='kakao'>카카오페이</label>
+                <label htmlFor='kakao'>
+                  <img src={getSNSImg(5)}/>
+                </label>
               </div>
               <div className='option_payment'>
                 <input type='radio' id='naver' name='payment'/>
-                <label htmlFor='naver'>네이버페이</label>
+                <label htmlFor='naver'>
+                  {<img src={getSNSImg(6)}/>}
+                </label>
               </div>
             </div>
           </Option>

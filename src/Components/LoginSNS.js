@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { getSNSImg } from './util';
 
 const Container = styled.div`
   flex: 6;
@@ -11,7 +12,6 @@ const Container = styled.div`
 `;
 
 const Wrap = styled.div`
-  border: 1px solid red;
   width: 80%;
   height: 30%;
   display: flex;
@@ -20,17 +20,34 @@ const Wrap = styled.div`
 `;
 
 const Item = styled.div`
-  border: 1px solid red;
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+  }
 `;
 
 const LoginSNS = () => {
   return (
     <Container>
       <Wrap>
-        <Item>Kakao</Item>
-        <Item>Facebook</Item>
-        <Item>Twitter</Item>
-        <Item>Google</Item>
+        <Item>
+          <img src={getSNSImg(1)}/>
+        </Item>
+        <Item>
+        <img src={getSNSImg(2)}/>
+        </Item>
+        <Item>
+        <img src={getSNSImg(3)}/>
+        </Item>
+        <Item>
+        <img src={getSNSImg(4)}/>
+        </Item>
       </Wrap>
     </Container>
   )
