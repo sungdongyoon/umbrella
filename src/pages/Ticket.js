@@ -58,14 +58,24 @@ const SelectMember = styled.div`
     background-color: #CEF576;
     opacity: 0.5;
   }
-  span:first-child {
+  span {
+    z-index: 10;
+  }
+  span:nth-child(1) {
     color: #fff;
     font-size: 30px;
     font-weight: bold;
   }
-  span:last-child {
+  span:nth-child(2) {
     font-size: 12px;
     color: #fff;
+  }
+  span:nth-child(3) {
+    position: absolute;
+    bottom: 10%;
+    font-size: 10px;
+    font-weight: bold;
+    color: red;
   }
 `;
 
@@ -94,6 +104,7 @@ const Ticket = () => {
           <SelectMember onClick={() => guestClick()}>
             <span>비회원이신가요?</span>
             <span>비회원 이용권 구매</span>
+            <span>비회원은 일일권만 구매 가능합니다!</span>
           </SelectMember>
         </Wrap> :
         <TicketMember/>

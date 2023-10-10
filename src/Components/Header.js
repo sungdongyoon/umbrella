@@ -34,7 +34,7 @@ const Navigation = styled.ul`
 const NavBtn = styled.li`
   font-size: 16px;
   padding: 5px 0px;
-  border-bottom: ${(props) => props.value === props.location ? "2px solid #87C700" : "transparent"};
+  border-bottom: ${(props) => props.value === props.location ? "2px solid #87C700" : "2px solid transparent"};
   cursor: pointer;
   &:hover {
     border-bottom: 2px solid #87C700;
