@@ -9,7 +9,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${(props) => props.scrollPosition > 100 ? "#fff" : "transparent"};
+  background-color: transparent;
   padding: 0 10%;
   position: fixed;
   top: 0;
@@ -20,24 +20,22 @@ const Container = styled.div`
 
 const Logo = styled.img`
   width: 200px;
-  // filter: invert(1);
   cursor: pointer;
 `;
 
 const Navigation = styled.ul`
-  display: flex;
+  display: ${(props) => props.scrollPosition > 100 ? "none" : "flex"};
   justify-content: flex-end;
   gap: 30px;
-  color: ${(props) => props.scrollPosition > 100 ? "#87C700" : "#000"};
 `;
 
 const NavBtn = styled.li`
   font-size: 16px;
   padding: 5px 0px;
-  border-bottom: ${(props) => props.value === props.location ? "2px solid #87C700" : "2px solid transparent"};
+  color: ${(props) => props.value === props.location ? "#87C700" : "#999"};
   cursor: pointer;
   &:hover {
-    border-bottom: 2px solid #87C700;
+    color: #87C700;
   }
   span {
     font-size: 12px;
@@ -107,12 +105,29 @@ const Header = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
   };
 
+  const onClickLogo = () => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    })
+    navigation('/');
+  };
+
+  const logout = () => {
+    alert("로그아웃 하시겠습니까?");
+    setTimeout(() => {
+      setIsProfile(false);
+      alert("로그아웃 되었습니다!");
+      window.location.reload();
+    }, 1000)
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", scrollHeader);
   }, []);
   return (
     <Container scrollPosition={scrollPosition}>
-      <Logo onClick={() => navigation('/')} src={LogoImg}/>
+      <Logo onClick={() => onClickLogo()} src={LogoImg}/>
       <Navigation scrollPosition={scrollPosition}>
         {!userValue ? 
           <NavBtn value="/login" location={locationPath} onClick={() => navigation('/login')}>Login</NavBtn> :
@@ -126,7 +141,7 @@ const Header = () => {
                   <li>내정보</li>
                   <li>개인정보 설정</li>
                   <li>이용권 구매 내역</li>
-                  <li>로그아웃</li>
+                  <li onClick={() => logout()}>로그아웃</li>
                 </ul>
               </Profile>
             }

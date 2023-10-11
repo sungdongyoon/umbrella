@@ -11,12 +11,19 @@ const Container = styled.div`
 `;
 
 const Wrap = styled.div`
-  width: 70%;
-  height: 50%;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 `;
 
 const Comment = styled.div`
-  height: 30%;
+  width: 100%;
+  height: 20%;
+  box-shadow: 0px 10px 10px #ccc;
+  padding: 50px 0;
 `;
 
 const Title = styled.h1`
@@ -46,7 +53,7 @@ const Content = styled.div`
 
 const HowTo = styled.div`
   height: 70%;
-  width: 100%;
+  width: 70%;
   display: flex;
 `;
 
@@ -59,6 +66,10 @@ const HowToRentReturn = styled.div`
   .howToWrap {
     width: 90%;
     height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
     span {
       font-size: 14px;
       font-weight: bold;

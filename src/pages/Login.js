@@ -27,8 +27,11 @@ const LoginTitle = styled.div`
   border-bottom: 2px solid #87C700;
   margin-bottom: 30px;
   h1 {
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 30px;
+    font-weight: 500;
+    b {
+      color: #87C700;
+    }
   }
 `;
 
@@ -59,7 +62,8 @@ const SelectMember = styled.div`
       border-bottom: ${(props) => props.isMemberSns ? "1px solid #ddd" : "1px solid #fff"};
     }
     span {
-      font-size: 20px;
+      font-size: 16px;
+      font-weight: bold;
     }
   }
 `;
@@ -102,12 +106,12 @@ const Login = () => {
     <Container>
       <Wrap>
         <LoginTitle>
-          <h1>로그인</h1>
+          <h1><b>우산있어?</b> 로그인</h1>
         </LoginTitle>
         <LoginWrap>
           <SelectMember isMemberSns={isMemberSns}>
             <div onClick={() => loginMethod(true)} >
-              <span>회원</span>
+              <span>아이디 로그인</span>
             </div>
             <div onClick={() => loginMethod(false)}>
               <span>SNS 간편 로그인</span>

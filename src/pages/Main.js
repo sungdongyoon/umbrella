@@ -21,7 +21,7 @@ const MainWelcome = styled.div`
   position: relative;
   &::after {
     content: '';
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -78,7 +78,7 @@ const EnvironmentIssue = styled.div`
   position: relative;
   &::after {
     content: '';
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
     top: 0;
     left: 0;
@@ -132,6 +132,7 @@ const IssueWrap = styled.div`
       font-weight: bold;
     }
     .source {
+      color: #777;
       font-size: 10px;
       position: absolute;
       left: 50%;

@@ -57,7 +57,7 @@ const LoginForm = () => {
   const [idValue, setIdValue] = useState("");
   const [pwValue, setPwValue] = useState("");
 
-  const {setUserValue} = useContext(userContext);
+  const {setLoginState, setUserValue} = useContext(userContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -66,7 +66,7 @@ const LoginForm = () => {
       if(pwValue.length > 1) {
         alert(`반갑습니다, ${idValue}님`);
         setUserValue(idValue);
-        console.log("login", idValue);
+        setLoginState("member");
         navigate("/");
       } else {
         alert(`비밀번호를 정확하게 입력해주세요`);
