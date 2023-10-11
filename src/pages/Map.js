@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Kakao from '../Components/Kakao';
 
 const Container = styled.div`
   width: 100%;
@@ -29,7 +30,7 @@ const Map = () => {
     <Container>
       <Wrap>
         <MapBox>
-          지도
+          <Kakao/>
         </MapBox>
       </Wrap>
     </Container>
