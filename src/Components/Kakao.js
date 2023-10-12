@@ -106,7 +106,7 @@ const Kakao = () => {
         </MapMarker>
       )}
       {bikeData.map((position, idx) => (
-        <EventMarker position={position}>{position.RENT_ID_NM}</EventMarker>
+        <EventMarker position={position}/>
       ))}
       <MapTypeControl position={"TOPRIGHT"} />
       <ZoomControl position={"RIGHT"} />
