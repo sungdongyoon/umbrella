@@ -114,12 +114,14 @@ const Header = () => {
   };
 
   const logout = () => {
-    alert("로그아웃 하시겠습니까?");
-    setTimeout(() => {
-      setIsProfile(false);
-      alert("로그아웃 되었습니다!");
-      window.location.reload();
-    }, 1000)
+    const logoutConfirm = window.confirm("로그아웃 하시겠습니까?");
+    if(logoutConfirm) {
+      setTimeout(() => {
+        setIsProfile(false);
+        alert("로그아웃 되었습니다!");
+        window.location.reload();
+      }, 1000)
+    }
   };
 
   useEffect(() => {
