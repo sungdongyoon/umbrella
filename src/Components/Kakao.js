@@ -109,6 +109,23 @@
 import React, { useEffect, useState } from 'react';
 import { Map, MapMarker, MapTypeControl, ZoomControl} from 'react-kakao-maps-sdk';
 import { getSNSImg } from './util';
+import styled from 'styled-components';
+
+const Button = styled.button`
+  width: 50px;
+  height: 40px;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 10;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`;
 
 const Kakao = () => {
   const BIKE_API_KEY = "4f6b724c4e6568643132346145456a57";
@@ -132,6 +149,13 @@ const Kakao = () => {
     },
     error: null,
     isLoading: true,
+  });
+
+  const [currentPosition, setCurrentPosition] = useState({
+    center: {
+      lat: position.center.lat,
+      lng: position.center.lng
+    }
   })
 
   useEffect(() => {
@@ -161,13 +185,18 @@ const Kakao = () => {
         isLoading: false,
       }))
     }
-  }, []);
+    console.log("position", position)
+  }, [position.center]);
 
   return (
     <Map
       center={position.center}
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "100%", height: "100%"}}
+      level={5}
     >
+      <Button onClick={() => setPosition(currentPosition)}>
+        <img src={getSNSImg(3)}/>
+      </Button>
       {!position.isLoading && (
         <MapMarker position={position.center} image={{
           src: getSNSImg(2),
