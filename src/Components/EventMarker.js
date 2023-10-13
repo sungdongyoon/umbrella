@@ -57,6 +57,10 @@ const Body = styled.div`
 
 const EventMarker = ({position}) => {
   const [isOverlay, setIsOverlay] = useState(false);
+
+  const clickMarker = () => {
+    setIsOverlay(!isOverlay);
+  }
   return (
     <>  
     <MapMarker
@@ -70,7 +74,7 @@ const EventMarker = ({position}) => {
         },
       }}
       title={position.RENT_ID_NM}
-      onClick={() => setIsOverlay(!isOverlay)}>
+      onClick={() => clickMarker()}>
     </MapMarker>
       {isOverlay && 
         <CustomOverlayMap position={{lat: position.STA_LAT, lng: position.STA_LONG}} >
@@ -90,8 +94,8 @@ const EventMarker = ({position}) => {
                 </div>
                 <div className='desc'>
                   <div className='count'>
-                    <span>우산 : 0개</span>
-                    <span>양산 : 0개</span>
+                    <span>우산 : {Math.floor(Math.random() * 15 + 1)}개</span>
+                    <span>양산 : {Math.floor(Math.random() * 15 + 1)}개</span>
                   </div>
                   <address>
                     {position.STA_ADD1}
