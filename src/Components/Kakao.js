@@ -22,7 +22,7 @@ const Button = styled.button`
 
 const Kakao = () => {
   // 따릉이
-  const BIKE_API_KEY = "4f6b724c4e6568643132346145456a57";
+  const BIKE_API_KEY = process.env.REACT_APP_BIKE_API;
 
   const [bikeData, setBikeData] = useState([]);
   const getBikeData = async() => {
