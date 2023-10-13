@@ -17,6 +17,8 @@ import KakaoPay from "../img/kakaoPay.png";
 import NaverPay from "../img/naverPay.png";
 import Umbrella from "../img/Umbrella.png";
 import Marker from "../img/marker.png";
+import PositionMarker from "../img/positionMarker.png";
+import Target from "../img/target.png";
 
 
 export const getMainImg = (mainId) => {
@@ -76,6 +78,10 @@ export const getMapImg = (mapId) => {
       return Umbrella;
     case "2":
       return Marker;
+    case "3":
+      return PositionMarker;
+    case "4":
+      return Target;
     default:
       return null;
   }

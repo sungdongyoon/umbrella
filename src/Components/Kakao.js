@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Map, MapMarker, MapTypeControl, ZoomControl} from 'react-kakao-maps-sdk';
 import EventMarker from './EventMarker';
-import { getSNSImg } from './util';
+import { getMapImg } from './util';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  width: 50px;
-  height: 40px;
+  width: 60px;
+  height: 50px;
   position: absolute;
-  bottom: 5%;
-  right: 5%;
+  bottom: 3%;
+  right: 3%;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -90,14 +90,14 @@ const Kakao = () => {
       level={5}
     >
       <Button onClick={() => setPosition(currentPosition)}>
-        <img src={getSNSImg(3)}/>
+        <img src={getMapImg(4)}/>
       </Button>
       {!position.isLoading && (
         <MapMarker position={position.center} image={{
-          src: getSNSImg(2),
+          src: getMapImg(3),
           size: {
-            width: 30,
-            height: 30
+            width: 60,
+            height: 60
           }
         }}/>
       )}
