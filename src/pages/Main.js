@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { getMainImg } from '../Components/util';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   width: 100%;
@@ -259,6 +260,7 @@ const MainLast = styled.div`
 `;
 
 const Main = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <MainWelcome>
@@ -361,14 +363,14 @@ const Main = () => {
             <img src={getMainImg(10)}/>
             <div className='mainlast_desc mainlast_desc_first'>
               <span>우산있어? 와 함께해요!</span>
-              <button>이용권 구매하러 가기</button>
+              <button onClick={() => navigate("/ticket")}>이용권 구매하러 가기</button>
             </div>
           </MainLast>
           <MainLast>
             <img src={getMainImg(11)}/>
             <div className='mainlast_desc mainlast_desc_second'>
               <span>대여할 수 있는 곳은?</span>
-              <button>대여소 확인하러 가기</button>
+              <button onClick={() => navigate("/map")}>대여소 확인하러 가기</button>
             </div>
           </MainLast>
         </MainLastWrap>

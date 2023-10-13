@@ -75,7 +75,12 @@ const Profile = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
+      color: #999;
       border-bottom: 1px solid #ccc;
+      &:last-child {
+        color: #000;
+        font-weight: bold;
+      }
     }
   }
   &::before {
