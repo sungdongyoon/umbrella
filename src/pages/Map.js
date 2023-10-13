@@ -19,7 +19,7 @@ const Wrap = styled.div`
 const MapBox = styled.div`
   width: 100%;
   height: 100%;
-  border: 3px solid #87C700;
+  box-shadow: 15px 15px 15px #999;
   display: flex;
   justify-content: center;
   align-items: center;

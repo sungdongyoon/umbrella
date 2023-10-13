@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Map, MapMarker, MapTypeControl, ZoomControl} from 'react-kakao-maps-sdk';
-import { getSNSImg } from './util';
 import EventMarker from './EventMarker';
+import { getSNSImg } from './util';
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -52,8 +52,6 @@ const Kakao = () => {
       lng: position.center.lng
     }
   })
-
-  const [isInfoWindow, setIsInfoWindow] = useState(false);
 
   useEffect(() => {
     if(navigator.geolocation) {
