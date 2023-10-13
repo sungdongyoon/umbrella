@@ -1,24 +1,7 @@
 import React, {useState} from 'react';
-import { getSNSImg } from './util';
+import { getMapImg } from './util';
 import { MapMarker, CustomOverlayMap } from 'react-kakao-maps-sdk';
 import styled from 'styled-components';
-
-// const InfoWindow = styled.div`
-//   width: 300px;
-//   height: 100px;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-evenly;
-//   gap: 3px;
-//   padding: 0 10px;
-//   h1 {
-//     font-size: 16px;
-//     font-weight: bold;
-//   }
-//   span {
-//     font-size: 12px;
-//   }
-// `;
 
 const Wrap = styled.div`
   border: 3px solid #87C700;
@@ -80,7 +63,7 @@ const EventMarker = ({position}) => {
       key={`${position.RENT_ID_NM}-${{lat: position.STA_LAT, lng: position.STA_LONG}}`}
       position={{lat: position.STA_LAT, lng: position.STA_LONG}}
       image={{
-        src: getSNSImg(1),
+        src: getMapImg(2),
         size: {
           width: 30,
           height: 30
@@ -100,7 +83,7 @@ const EventMarker = ({position}) => {
               <Body>
                 <div className='img'>
                   <img
-                    src={getSNSImg(1)}
+                    src={getMapImg(1)}
                     width="50"
                     height="50"
                     alt={position.RENT_ID_NM}/>

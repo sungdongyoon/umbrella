@@ -99,9 +99,7 @@ const Kakao = () => {
             width: 30,
             height: 30
           }
-        }}>
-          {position.errMsg ? position.errMsg : "현재 위치"}
-        </MapMarker>
+        }}/>
       )}
       {bikeData.map((position, idx) => (
         <EventMarker position={position}/>

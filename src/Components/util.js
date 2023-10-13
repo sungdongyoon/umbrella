@@ -15,6 +15,8 @@ import Twitter from "../img/twitter.png";
 import Google from "../img/google.png";
 import KakaoPay from "../img/kakaoPay.png";
 import NaverPay from "../img/naverPay.png";
+import Umbrella from "../img/Umbrella.png";
+import Marker from "../img/marker.png";
 
 
 export const getMainImg = (mainId) => {
@@ -62,6 +64,18 @@ export const getSNSImg = (snsId) => {
       return KakaoPay
     case "6":
       return NaverPay
+    default:
+      return null;
+  }
+}
+
+export const getMapImg = (mapId) => {
+  const targetMapImg = String(mapId);
+  switch(targetMapImg) {
+    case "1":
+      return Umbrella;
+    case "2":
+      return Marker;
     default:
       return null;
   }
