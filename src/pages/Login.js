@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import LoginForm from '../Components/LoginForm';
 import LoginSNS from '../Components/LoginSNS';
+import responsive from '../style/respoinsive';
 
 const Container = styled.div`
   width: 100%;
@@ -13,10 +14,15 @@ const Container = styled.div`
 
 const Wrap = styled.div`
   width: 40%;
+  min-width: 600px;
   height: 50%;
   display: flex;
   flex-direction: column;
   position: relative;
+  @media screen and ${responsive.tablet} {
+    width: 500px;
+    min-width: 500px;
+  }
 `;
 
 const LoginTitle = styled.div`
@@ -31,6 +37,11 @@ const LoginTitle = styled.div`
     font-weight: 500;
     b {
       color: #87C700;
+    }
+  }
+  @media screen and ${responsive.tablet} {
+    h1 {
+      font-size: 26px;
     }
   }
 `;
@@ -66,6 +77,13 @@ const SelectMember = styled.div`
       font-weight: bold;
     }
   }
+  @media screen and ${responsive.tablet} {
+    div {
+      span {
+        font-size: 14px;
+      }
+    }
+  }
 `;
 
 const Join = styled.div`
@@ -77,6 +95,9 @@ const Join = styled.div`
     color: #87C700;
     font-weight: bold;
     cursor: pointer;
+  }
+  @media screen and ${responsive.tablet} {
+    font-size: 11px;
   }
 `;
 
@@ -92,6 +113,9 @@ const SearchIdPw = styled.div`
     &:first-child {
       border-right: 1px solid #000;
     }
+  }
+  @media screen and ${responsive.tablet} {
+    font-size: 11px;
   }
 `;
 

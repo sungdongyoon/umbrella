@@ -7,18 +7,6 @@ import responsive from '../style/respoinsive';
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  @media screen and ${responsive.laptop} {
-    border: 2px solid red;
-  }
-  @media screen and ${responsive.tablet} {
-    border: 2px solid orange;
-  }
-  @media screen and ${responsive.mobile} {
-    border: 2px solid yellow;
-  }
-  @media screen and ${responsive.iphone12Pro} {
-    border: 2px solid green;
-  }
 `;
 
 const MainWelcome = styled.div`
