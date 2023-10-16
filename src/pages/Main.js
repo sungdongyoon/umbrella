@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { getMainImg } from '../Components/util';
 import { useNavigate } from 'react-router-dom';
@@ -383,8 +383,34 @@ const MainLast = styled.div`
   }
 `;
 
-const Main = () => {
+const GoTop = styled.div`
+  width: 50px;
+  height: 50px;
+  display: ${(props) => props.scrollPosition > 100 ? "flex" : "none"};
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  border-radius: 50%;
+  background-color: #87C700;
+  color: #fff;
+  cursor: pointer;
+  z-index: 100;
+`;
+
+const Main = ({ scrollPosition, scrollHeader}) => {
   const navigate = useNavigate();
+
+  const onClickTop = () => {
+    window.scroll({
+      top: 0,
+    })
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHeader);
+  }, []);
   return (
     <Container>
       <MainWelcome>
@@ -499,6 +525,9 @@ const Main = () => {
           </MainLast>
         </MainLastWrap>
       </MainLastContent>
+      <GoTop onClick={() => onClickTop()} scrollPosition={scrollPosition}>
+        Top
+      </GoTop>
     </Container>
   )
 }

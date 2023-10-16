@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Main from './pages/Main';
@@ -27,11 +28,16 @@ const Container = styled.div`
 
 
 function App() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const scrollHeader = () => {
+    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+  };
   return (
     <Container>
-      <Header/>
+      <Header scrollPosition={scrollPosition} scrollHeader={scrollHeader}/>
       <Routes>
-        <Route path='/' element={<Main/>}/>
+        <Route path='/' element={<Main scrollPosition={scrollPosition} scrollHeader={scrollHeader}/>}/>
         <Route path='/guide' element={<Guide/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/ticket' element={<Ticket/>}/>

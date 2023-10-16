@@ -6,7 +6,7 @@ import { userContext } from '../context';
 
 const Container = styled.div`
   height: 80px;
-  display: flex;
+  display: ${(props) => props.scrollPosition > 100 ? "none" : "flex"};
   justify-content: space-between;
   align-items: center;
   background-color: transparent;
@@ -24,7 +24,7 @@ const Logo = styled.img`
 `;
 
 const Navigation = styled.ul`
-  display: ${(props) => props.scrollPosition > 100 ? "none" : "flex"};
+  display: flex;
   justify-content: flex-end;
   gap: 30px;
 `;
@@ -95,27 +95,21 @@ const Profile = styled.div`
   }
 `;
 
-const Header = () => {
+const Header = ({scrollPosition, scrollHeader}) => {
   const {userValue} = useContext(userContext);
-  const navigation = useNavigate();
+  const navigate = useNavigate();
   const location = useLocation();
 
   const locationPath = location.pathname;
 
-  const [scrollPosition, setScrollPosition] = useState(0);
   const [isProfile, setIsProfile] = useState(false);
-  
-
-  const scrollHeader = () => {
-    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
-  };
 
   const onClickLogo = () => {
     window.scroll({
       top: 0,
       behavior: "smooth",
     })
-    navigation('/');
+    navigate('/');
   };
 
   const logout = () => {
@@ -132,12 +126,13 @@ const Header = () => {
   useEffect(() => {
     window.addEventListener("scroll", scrollHeader);
   }, []);
+  
   return (
     <Container scrollPosition={scrollPosition}>
       <Logo onClick={() => onClickLogo()} src={LogoImg}/>
       <Navigation scrollPosition={scrollPosition}>
         {!userValue ? 
-          <NavBtn value="/login" location={locationPath} onClick={() => navigation('/login')}>Login</NavBtn> :
+          <NavBtn value="/login" location={locationPath} onClick={() => navigate('/login')}>Login</NavBtn> :
           <NavBtn value="/profile" location={locationPath}>
             <span className='profile' onClick={() => setIsProfile(!isProfile)}>
               반갑습니다, <b>{userValue}</b>님
@@ -154,10 +149,10 @@ const Header = () => {
             }
           </NavBtn>
         }
-        <NavBtn value="/guide" location={locationPath} onClick={() => navigation('/guide')}>Guide</NavBtn>
-        <NavBtn value="/ticket" location={locationPath} onClick={() => navigation('/ticket')}>Ticket</NavBtn>
-        <NavBtn value="/map" location={locationPath} onClick={() => navigation('/map')}>Map</NavBtn>
-        <NavBtn value="/faq" location={locationPath} onClick={() => navigation('/faq')}>FAQ</NavBtn>
+        <NavBtn value="/guide" location={locationPath} onClick={() => navigate('/guide')}>Guide</NavBtn>
+        <NavBtn value="/ticket" location={locationPath} onClick={() => navigate('/ticket')}>Ticket</NavBtn>
+        <NavBtn value="/map" location={locationPath} onClick={() => navigate('/map')}>Map</NavBtn>
+        <NavBtn value="/faq" location={locationPath} onClick={() => navigate('/faq')}>FAQ</NavBtn>
         
       </Navigation>
     </Container>
