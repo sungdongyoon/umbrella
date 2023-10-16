@@ -2,10 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 import { getMainImg } from '../Components/util';
 import { useNavigate } from 'react-router-dom';
+import responsive from '../style/respoinsive';
 
 const Container = styled.div`
   width: 100%;
   height: 100%;
+  @media screen and ${responsive.laptop} {
+    border: 2px solid red;
+  }
+  @media screen and ${responsive.tablet} {
+    border: 2px solid orange;
+  }
+  @media screen and ${responsive.mobile} {
+    border: 2px solid yellow;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    border: 2px solid green;
+  }
 `;
 
 const MainWelcome = styled.div`
@@ -65,6 +78,12 @@ const Slogan = styled.div`
       color: #87C700;
     }
   }
+  @media screen and ${responsive.laptop} {
+    span {
+      font-size: 40px;
+      line-height: 70px;
+    }
+  }
 `;
 
 const EnvironmentIssue = styled.div`
@@ -97,7 +116,7 @@ const Issue = styled.div`
 `;
 
 const IssueWrap = styled.div`
-  width: 60%;
+  width: 65%;
   height: 90%;
   display: flex;
   .image {
@@ -106,7 +125,7 @@ const IssueWrap = styled.div`
     justify-content: center;
     align-items: center;
     img {
-      width: 70%;
+      width: 400px;
       border-radius: 10px;
     }
   }
@@ -141,6 +160,37 @@ const IssueWrap = styled.div`
       transform: translateX(-50%);
     }
   }
+  @media screen and ${responsive.laptop} {
+    width: 70%;
+    .image {
+      img {
+        width: 300px;
+      }
+    }
+    .content {
+      h1 {
+        font-size: 25px;
+      }
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+  @media screen and ${responsive.tablet} {
+    .image {
+      img {
+        width: 250px;
+      }
+    }
+    .content {
+      h1 {
+        font-size: 20px;
+      }
+      span {
+        font-size: 12px;
+      }
+    }
+  }
 `;
 
 const EnvironmentAdvantage = styled.div`
@@ -153,7 +203,7 @@ const EnvironmentAdvantage = styled.div`
 
 const AdvantageWrap = styled.div`
   width: 80%;
-  height: 50%;
+  height: 60%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -166,31 +216,86 @@ const AdvantageWrap = styled.div`
     top: -20%;
     left: 0;
   }
+  @media screen and ${responsive.laptop} {
+    height: 55%;
+  }
+  @media screen and ${responsive.tablet} {
+    height: 50%;
+  }
 `;
 
 const Advantage = styled.div`
   width: 25%;
   height: 100%;
   position: relative;
+  &:hover {
+    img {
+      filter: brightness(30%);  
+    }
+  }
   img {
     width: 100%;
     height: 100%;
+    border-radius: 10px;
     object-fit: cover;
+    transition: 0.5s;
     filter: brightness(60%);
   }
   .advantage_desc {
+    width: 100%;
+    height: 100%;
     position: absolute;
-    top: 5%;
-    left: 5%;
+    top: 0;
+    left: 0;
     h3 {
       color: #fff;
       font-weight: bold;
       font-size: 18px;
-      margin-bottom: 20px;
+      margin-left: 5%;
+      margin-top: 10%;
     }
     span {
-      color: #fff;
+      display: none;
+      width: 100%;
+      color: #87C700;
       line-height: 25px;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  &:hover {
+    .advantage_desc {
+      span {
+        display: block;
+      }
+    }
+  }
+  @media screen and ${responsive.laptop} {
+    width: 250px;
+    .advantage_desc {
+      h3 {
+        font-size: 16px;
+      }
+      span {
+        font-size: 12px;
+      }
+    }
+  }
+  @media screen and ${responsive.tablet} {
+    width: 200px;
+    .advantage_desc {
+      h3 {
+        font-size: 14px;
+      }
+      span {
+        font-size: 10px;
+        line-height: 20px;
+      }
     }
   }
 `;
@@ -223,7 +328,7 @@ const MainLastWrap = styled.div`
 `;
 
 const MainLast = styled.div`
-  width: 40%;
+  width: 500px;
   position: relative;
   img {
     width: 100%;
@@ -237,18 +342,23 @@ const MainLast = styled.div`
     top: 50%;
     transform: translateY(-50%);
     span {
-      color: #fff;
+      color: #000;
       font-weight: bold;
       font-size: 16px;
     }
     button {
       width: 100%;
-      height: 30px;
+      height: 40px;
       color: #fff;
+      font-weight: bold;
       border: none;
       border-radius: 5px;
-      background-color: #000;
+      background: linear-gradient(-90deg, #CEF576, #87C700);
       cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
   .mainlast_desc_first {
@@ -256,6 +366,20 @@ const MainLast = styled.div`
   }
   .mainlast_desc_second {
     right: 10%;
+    span {
+      color: #fff;
+    }
+  }
+  @media screen and ${responsive.tablet} {
+    width: 400px;
+    .mainlast_desc {
+      span {
+        font-size: 14px;
+      }
+      button {
+        font-size: 12px;
+      }
+    }
   }
 `;
 
