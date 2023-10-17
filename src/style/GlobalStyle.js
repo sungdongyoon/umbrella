@@ -29,6 +29,17 @@ html, body, div, span, applet, object, iframe,
   body {
     line-height: 1;
   }
+  body::-webkit-scrollbar {
+    width: 6px;
+  }
+  body::-webkit-scrollbar-thumb {
+    height: 20%;
+    background-color: #87C700;
+    border-radius: 30px;
+  }
+  body::-webkit-scrollbar-track {
+    background: rgba(135, 199, 0, 0.2);
+  }
   ol, ul {
     list-style: none;
   }
