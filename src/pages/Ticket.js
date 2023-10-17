@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { userContext } from '../context';
 import TicketMember from './TicketMember';
+import responsive from '../style/respoinsive';
 
 const Container = styled.div`
   width: 100%;
@@ -19,10 +20,20 @@ const Wrap = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  // @media screen and ${responsive.laptop} {
+  //   border: 2px solid red;
+  // }
+  // @media screen and ${responsive.tablet} {
+  //   border: 2px solid orange;
+  // }
+  // @media screen and ${responsive.mobile} {
+  //   border: 2px solid yellow;
+  // }
 `;
 
 const SelectMember = styled.div`
   width: 40%;
+  min-width: 400px;
   height: 70%;
   display: flex;
   flex-direction: column;
@@ -76,6 +87,34 @@ const SelectMember = styled.div`
     font-size: 10px;
     font-weight: bold;
     color: red;
+  }
+  @media screen and ${responsive.laptop} {
+    width: 350px;
+    min-width: 350px;
+    &::before, &::after {
+      width: 70%;
+      height: 90%;
+    }
+    span:nth-child(1) {
+      font-size: 25px;
+    }
+  }
+  @media screen and ${responsive.tablet} {
+    width: 250px;
+    min-width: 250px;
+    &::before, &::after {
+      width: 80%;
+      height: 80%;
+    }
+    span:nth-child(1) {
+      font-size: 20px;
+    }
+    span:nth-child(2) {
+      font-size: 10px;
+    }
+    span:nth-child(3) {
+      font-size: 8px;
+    }
   }
 `;
 
