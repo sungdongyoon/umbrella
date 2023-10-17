@@ -28,6 +28,7 @@ html, body, div, span, applet, object, iframe,
   }
   body {
     line-height: 1;
+    overflow-x: hidden;
   }
   body::-webkit-scrollbar {
     width: 6px;
