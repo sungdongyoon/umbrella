@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import responsive from '../style/respoinsive';
 
 const Container = styled.div`
   width: 100%;
@@ -32,6 +33,12 @@ const Title = styled.h1`
   text-align: center;
   font-size: 36px;
   font-weight: bold;
+  @media screen and ${responsive.laptop} {
+    font-size: 30px;
+  }
+  @media screen and ${responsive.tablet} {
+    font-size: 26px;
+  }
 `;
 
 const Content = styled.div`
@@ -49,12 +56,34 @@ const Content = styled.div`
   span:last-child {
     font-size: 16px;
   }
+  @media screen and ${responsive.laptop} {
+    span:first-child {
+      font-size: 16px;
+    }
+    span:last-child {
+      font-size: 14px;
+    }
+  }
+  @media screen and ${responsive.tablet} {
+    span:first-child {
+      font-size: 14px;
+    }
+    span:last-child {
+      font-size: 12px;
+    }
+  }
 `;
 
 const HowTo = styled.div`
   height: 70%;
   width: 70%;
   display: flex;
+  @media screen and ${responsive.laptop} {
+    width: 75%;
+  }
+  @media screen and ${responsive.tablet} {
+    width: 90%;
+  }
 `;
 
 const HowToRentReturn = styled.div`
@@ -64,7 +93,7 @@ const HowToRentReturn = styled.div`
   justify-content: flex-start;
   align-items: center;
   .howToWrap {
-    width: 90%;
+    width: 100%;
     height: 50%;
     display: flex;
     flex-direction: column;
@@ -86,24 +115,60 @@ const HowToRentReturn = styled.div`
       border-radius: 50%;
     }
     .howToContent {
-      width: 100%;
+      width: 90%;
       height: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
       div {
-        width: 100px;
-        height: 100px;
+        width: 110px;
+        height: 110px;
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 50%;
         background-color: #87C700;
         color: #fff;
-        font-size: 10px;
+        font-size: 12px;
         font-weight: bold;
         text-align: center;
         line-height: 15px;
+      }
+      &::after {
+        content: '';
+        width: 100%;
+        height: 3px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #87C700;
+        z-index: -1;
+      }
+    }
+  }
+  @media screen and ${responsive.laptop} {
+    .howToWrap {
+      .howToContent {
+        div {
+          width: 100px;
+          height: 100px;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+  @media screen and ${responsive.tablet} {
+    .howToWrap {
+      span {
+        font-size: 12px;
+      }
+      .howToContent {
+        div {
+          width: 80px;
+          height: 80px;
+          font-size: 8px;
+        }
       }
     }
   }
