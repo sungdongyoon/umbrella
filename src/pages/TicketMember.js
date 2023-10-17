@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Modal from '../Components/Modal';
 import { userContext } from '../context';
 import { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTicket } from '@fortawesome/free-solid-svg-icons';
+import responsive from '../style/respoinsive';
 
 const Container = styled.div`
   width: 100%;
@@ -29,10 +30,15 @@ const Container = styled.div`
 
 const Wrap = styled.div`
   width: 60%;
+  min-width: 800px;
   height: 40%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and ${responsive.tablet} {
+    width: 700px;
+    min-width: 700px;
+  }
 `;
 
 const TicketWrap = styled.div`
@@ -66,6 +72,7 @@ const TicketWrap = styled.div`
 
 const Notification = styled.div`
   width: 60%;
+  min-width: 800px;
   height: 20%;
   border: 1px solid #ddd;
   ul {
@@ -85,6 +92,10 @@ const Notification = styled.div`
         font-weight: bold;
       }
     }
+  }
+  @media screen and ${responsive.tablet} {
+    width: 700px;
+    min-width: 700px;
   }
 `;
 

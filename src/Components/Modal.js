@@ -7,9 +7,11 @@ import { useContext } from 'react';
 import Agrees from './Agrees';
 import Buttons from './Buttons';
 import { getSNSImg } from './util';
+import responsive from '../style/respoinsive';
 
 const Container = styled.div`
   width: 50%;
+  min-width: 700px;
   height: 70%;
   display: flex;
   flex-direction: column;
@@ -20,6 +22,11 @@ const Container = styled.div`
   transform: translate(-50%, -50%);
   background-color: #fff;
   z-index: 15;
+  @media screen and ${responsive.tablet} {
+    width: 600px;
+    min-width: 600px;
+    height: 65%;
+  }
 `;
 
 const Title = styled.div`
@@ -32,6 +39,11 @@ const Title = styled.div`
     color: #87C700;
     font-weight: bold;
     font-size: 30px;
+  }
+  @media screen and ${responsive.tablet} {
+    h1 {
+      font-size: 26px;
+    }
   }
 `;
 
@@ -93,6 +105,19 @@ const Option = styled.div`
     flex: 6;
     height: 30px;
     outline: none;
+  }
+  @media screen and ${responsive.tablet} {
+    .option_title {
+      font-size: 14px;
+    }
+    .option_content {
+      font-size: 14px;
+      .option_payment {
+        label {
+          font-size: 10px;
+        }
+      }
+    }
   }
 `;
 

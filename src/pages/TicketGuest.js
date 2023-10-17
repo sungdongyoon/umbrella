@@ -4,6 +4,7 @@ import Agrees from '../Components/Agrees';
 import Buttons from '../Components/Buttons';
 import { getSNSImg } from '../Components/util';
 import { agreeContext } from '../context';
+import responsive from '../style/respoinsive';
 
 const Container = styled.div`
   width: 100%;
@@ -15,6 +16,7 @@ const Container = styled.div`
 
 const Wrap = styled.div`
   width: 50%;
+  min-width: 700px;
   height: 70%;
   display: flex;
   flex-direction: column;
@@ -22,6 +24,11 @@ const Wrap = styled.div`
   align-items: center;
   .agreesWrap {
     width: 100%;
+  }
+  @media screen and ${responsive.tablet} {
+    width: 60%;
+    min-width: 600px;
+    height: 60%;
   }
 `;
 
@@ -36,6 +43,9 @@ const Title = styled.h1`
   color: #87C700;
   padding: 10px 0;
   border-bottom: 3px solid #87C700;
+  @media screen and ${responsive.tablet} {
+    font-size: 26px;
+  }
 `;
 
 const Content = styled.div`
@@ -111,6 +121,14 @@ const Option = styled.div`
   }
   .number {
     gap: 10px;
+  }
+  @media screen and ${responsive.tablet} {
+    .option_title {
+      font-size: 14px;
+    }
+    .option_content {
+      font-size: 14px;
+    }
   }
 `;
 

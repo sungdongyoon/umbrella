@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { agreeContext, userContext } from '../context';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import responsive from '../style/respoinsive';
 
 const ButtonWrap = styled.div`
   width: 80%;
@@ -23,6 +24,13 @@ const ButtonWrap = styled.div`
   }
   .pay_btn {
     background-color: ${(props) => props.disabled ? "#ccc" : "#87C700"};
+  }
+  @media screen and ${responsive.tablet} {
+    gap: 25px;
+    button {
+      width: 130px;
+      font-size: 14px;
+    }
   }
 `;
 

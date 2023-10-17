@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { useContext } from 'react';
 import { agreeContext } from '../context';
+import responsive from '../style/respoinsive';
 
 const AgreeWrap = styled.div`
   padding: 10px;
@@ -17,6 +18,11 @@ const Agree = styled.div`
   align-items: center;
   label {
     font-size: 12px;
+  }
+  @media screen and ${responsive.laptop} {
+    label {
+      font-size: 11px;
+    }
   }
 `;
 
