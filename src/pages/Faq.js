@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import faqDb from '../faqData';
 import FaqItem from '../Components/FaqItem';
+import responsive from '../style/respoinsive';
 
 const Container = styled.div`
   width: 100%;
@@ -14,12 +15,17 @@ const Container = styled.div`
 
 const Wrap = styled.div`
   width: 50%;
+  min-width: 700px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin: 7% 0;
-  margin-bottom: 10%;
+  margin: 150px 0;
+  margin-bottom: 170px;
+  @media screen and ${responsive.tablet} {
+    width: 600px;
+    min-width: 600px;
+  }
 `;
 
 const Title = styled.div`
