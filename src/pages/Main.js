@@ -197,11 +197,9 @@ const IssueWrap = styled.div`
     }
   }
   @media screen and ${responsive.mobile} {
-    // border: 2px solid red;
     flex-direction: column;
     align-items: center;
     .image {
-      // border: 2px solid red;
       width: 100%;
       height: 100%;
       flex: 3;
@@ -211,12 +209,25 @@ const IssueWrap = styled.div`
       height: 100%;
       flex: 2;
       gap: 15px;
+      order: 1;
       span {
         line-height: 20px;
+        text-align: center;
       }
       .source {
         bottom: 0%;
         line-height: 10px;
+        order: 2;
+      }
+    }
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    .content {
+      h1 {
+        font-size: 16px;
+      }
+      span {
+        font-size: 10px;
       }
     }
   }
@@ -250,6 +261,12 @@ const AdvantageWrap = styled.div`
   }
   @media screen and ${responsive.tablet} {
     height: 50%;
+  }
+  @media screen and ${responsive.mobile} {
+    flex-direction: column;
+    h1 {
+      font-size: 25px;
+    }
   }
 `;
 
@@ -327,6 +344,30 @@ const Advantage = styled.div`
       }
     }
   }
+  @media screen and ${responsive.mobile} {
+    width: 100%;
+    height: 30%;
+    img {
+      border-radius: 0;
+    }
+    .advantage_desc {
+      h3 {
+        margin-top: 5%;
+      }
+      span {
+        font-size: 14px;
+      }
+    }
+    &:hover {
+      transform: scale(1.05);
+      transition: 0.5s;
+      .advantage_desc {
+        h3 {
+          display: none;
+        }
+      }
+    }
+  }
 `;
 
 const MainLastContent = styled.div`
@@ -353,6 +394,18 @@ const MainLastWrap = styled.div`
     font-size: 30px;
     font-weight: bold;
     color: #87C700;
+  }
+  @media screen and ${responsive.mobile} {
+    h1 {
+      top: -5%;
+      font-size: 20px;
+    }
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    h1 {
+      top: 10%;
+      font-size: 18px;
+    }
   }
 `;
 
@@ -407,6 +460,19 @@ const MainLast = styled.div`
       }
       button {
         font-size: 12px;
+      }
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    width: 350px;
+    .mainlast_desc {
+      span {
+        font-size: 12px;
+      }
+      button {
+        width: 100%;
+        height: 30px;
+        font-size: 10px;
       }
     }
   }
