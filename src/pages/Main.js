@@ -28,6 +28,9 @@ const MainWelcome = styled.div`
     height: 100%;
     position: absolute;
   }
+  @media screen and ${responsive.mobile} {
+    gap: 40px;
+  }
 `;
 
 const MainText = styled.span`
@@ -40,6 +43,10 @@ const MainText = styled.span`
   b {
     color: #87C700;
   }
+  @media screen and ${responsive.mobile} {
+    font-size: 25px;
+    line-height: 40px;
+  }
 `;
 
 const SubText = styled.span`
@@ -49,6 +56,10 @@ const SubText = styled.span`
   line-height: 30px;
   text-align: center;
   z-index: 1;
+  @media screen and ${responsive.mobile} {
+    font-size: 12px;
+    line-height: 25px;
+  }
 `;
 
 const Slogan = styled.div`
@@ -70,6 +81,12 @@ const Slogan = styled.div`
     span {
       font-size: 40px;
       line-height: 70px;
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    span {
+      font-size: 30px;
+      line-height: 60px;
     }
   }
 `;
@@ -176,6 +193,30 @@ const IssueWrap = styled.div`
       }
       span {
         font-size: 12px;
+      }
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    // border: 2px solid red;
+    flex-direction: column;
+    align-items: center;
+    .image {
+      // border: 2px solid red;
+      width: 100%;
+      height: 100%;
+      flex: 3;
+    }
+    .content {
+      width: 100%;
+      height: 100%;
+      flex: 2;
+      gap: 15px;
+      span {
+        line-height: 20px;
+      }
+      .source {
+        bottom: 0%;
+        line-height: 10px;
       }
     }
   }

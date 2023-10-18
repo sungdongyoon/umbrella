@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import LogoImg from "../img/iconLogo.svg";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { userContext } from '../context';
+import responsive from '../style/respoinsive';
 
 const Container = styled.div`
   height: 80px;
@@ -16,22 +17,30 @@ const Container = styled.div`
   left: 0;
   right: 0;
   z-index: 10;
+  @media screen and ${responsive.mobile} {
+    height: 60px;
+    padding: 0 8%;
+  }
 `;
 
 const Logo = styled.img`
   width: 200px;
   cursor: pointer;
+  @media screen and ${responsive.mobile} {
+    width: 120px;
+  }
 `;
 
 const Navigation = styled.ul`
   display: flex;
   justify-content: flex-end;
   gap: 30px;
+  @media screen and ${responsive.mobile} {
+    gap: 20px;
+  }
 `;
 
 const NavBtn = styled.li`
-  font-size: 16px;
-  padding: 5px 0px;
   color: ${(props) => props.value === props.location ? "#87C700" : "#999"};
   cursor: pointer;
   &:hover {
@@ -46,6 +55,16 @@ const NavBtn = styled.li`
   }
   &:nth-child(1) {
     position: relative;
+  }
+  @media screen and ${responsive.mobile} {
+    font-size: 12px;
+    span {
+      font-size: 8px;
+      b {
+        font-size: 12px;
+        font-weight: bold;
+      } 
+    }
   }
 `;
 
@@ -92,6 +111,13 @@ const Profile = styled.div`
     border-width: 10px;
     border-style: solid;
     border-color: transparent transparent #fff transparent;
+  }
+  @media screen and ${responsive.mobile} {
+    height: 150px;
+    top: 40px;
+    ul {
+      font-size: 10px;
+    }
   }
 `;
 
