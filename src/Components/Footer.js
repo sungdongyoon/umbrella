@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import responsive from '../style/respoinsive';
 
 const Container = styled.div`
   width: 30%;
@@ -10,6 +11,9 @@ const Container = styled.div`
   position: absolute;
   bottom: 0;
   border-top: 1px solid #000;
+  @media screen and ${responsive.mobile} {
+    width: 60%;
+  }
 `;
 
 const Content = styled.div`

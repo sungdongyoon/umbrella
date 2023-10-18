@@ -21,6 +21,12 @@ const Container = styled.div`
     height: 60px;
     padding: 0 8%;
   }
+  @media screen and ${responsive.iphone12Pro} {
+    height: 100px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+  }
 `;
 
 const Logo = styled.img`
