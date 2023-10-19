@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { getSNSImg } from './util';
+import responsive from '../style/respoinsive';
 
 const Container = styled.div`
   flex: 6;
@@ -29,6 +30,12 @@ const Item = styled.div`
     width: 60px;
     height: 60px;
     cursor: pointer;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    img {
+      width: 40px;
+      height: 40px;
+    }
   }
 `;
 

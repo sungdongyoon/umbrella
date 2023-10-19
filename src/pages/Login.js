@@ -23,6 +23,11 @@ const Wrap = styled.div`
     width: 500px;
     min-width: 500px;
   }
+  @media screen and ${responsive.iphone12Pro} {
+    width: 300px;
+    min-width: 300px;
+    height: 40%;
+  }
 `;
 
 const LoginTitle = styled.div`
@@ -42,6 +47,11 @@ const LoginTitle = styled.div`
   @media screen and ${responsive.tablet} {
     h1 {
       font-size: 26px;
+    }
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    h1 {
+      font-size: 20px;
     }
   }
 `;
@@ -84,6 +94,13 @@ const SelectMember = styled.div`
       }
     }
   }
+  @media screen and ${responsive.iphone12Pro} {
+    div {
+      span {
+        font-size: 12px;
+      }
+    }
+  }
 `;
 
 const Join = styled.div`
@@ -98,6 +115,9 @@ const Join = styled.div`
   }
   @media screen and ${responsive.tablet} {
     font-size: 11px;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    font-size: 8px;
   }
 `;
 
@@ -116,6 +136,9 @@ const SearchIdPw = styled.div`
   }
   @media screen and ${responsive.tablet} {
     font-size: 11px;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    font-size: 8px;
   }
 `;
 

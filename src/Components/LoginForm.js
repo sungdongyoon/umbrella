@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { userContext } from '../context';
+import responsive from '../style/respoinsive';
 
 const Container = styled.form`
   flex: 6;
@@ -31,6 +32,9 @@ const LoginWrap = styled.div`
     letter-spacing: 3px;
     cursor: pointer;
   }
+  @media screen and ${responsive.iphone12Pro} {
+    width: 70%;
+  }
 `;
 
 const InputWrap = styled.div`
@@ -49,6 +53,14 @@ const InputWrap = styled.div`
     outline: none;
     &:focus {
       border: 2px solid #87C700;
+    }
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    label {
+      font-size: 16px;
+    }
+    input {
+      height: 60%;
     }
   }
 `;
