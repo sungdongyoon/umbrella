@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import responsive from '../style/respoinsive';
 
 const Faq = styled.div`
   display: flex;
@@ -13,6 +14,10 @@ const Faq = styled.div`
   border-radius: 3px;
   position: relative;
   cursor: pointer;
+  @media screen and ${responsive.mobile} {
+    padding: 15px 30px;
+    gap: 30px;
+  }
 `;
 
 const FaqTitle = styled.div`
@@ -21,6 +26,12 @@ const FaqTitle = styled.div`
   font-size: 14px;
   font-weight: bold;
   color: #999;
+  @media screen and ${responsive.mobile} {
+    font-size: 12px;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    font-size: 12px;
+  }
 `;
 
 const FaqContent = styled.span`
@@ -33,6 +44,9 @@ const FaqContent = styled.span`
     li {
       list-style: circle;
     }
+  }
+  @media screen and ${responsive.mobile} {
+    font-size: 10px;
   }
 `;
 

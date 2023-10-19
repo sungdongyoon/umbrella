@@ -27,7 +27,7 @@ const Agree = styled.div`
   }
   @media screen and ${responsive.mobile} {
     label {
-      font-size: 10px;
+      font-size: 8px;
     }
   }
 `;

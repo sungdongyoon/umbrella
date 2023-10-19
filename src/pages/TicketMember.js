@@ -39,6 +39,16 @@ const Wrap = styled.div`
     width: 700px;
     min-width: 700px;
   }
+  @media screen and ${responsive.mobile} {
+    width: 400px;
+    min-width: 400px;
+    height: 30%;
+    gap: 30px;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    width: 350px;
+    min-width: 350px;
+  }
 `;
 
 const TicketWrap = styled.div`
@@ -68,6 +78,26 @@ const TicketWrap = styled.div`
     right: 10%;
     font-size: 70px;
   }
+  @media screen and ${responsive.mobile} {
+    .content {
+      h1 {
+        font-size: 15px;
+      }
+      span {
+        font-size: 10px;
+      }
+    }
+    .ticket {
+      font-size: 50px;
+    }
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    .content {
+      span {
+        font-size: 9px;
+      }
+    }
+  }
 `;
 
 const Notification = styled.div`
@@ -96,6 +126,20 @@ const Notification = styled.div`
   @media screen and ${responsive.tablet} {
     width: 700px;
     min-width: 700px;
+  }
+  @media screen and ${responsive.mobile} {
+    width: 400px;
+    min-width: 400px;
+    height: 15%;
+    ul {
+      li {
+        font-size: 10px;
+      }
+    }
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    width: 350px;
+    min-width: 350px;
   }
 `;
 

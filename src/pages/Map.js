@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Kakao from '../Components/Kakao';
+import responsive from '../style/respoinsive';
 
 const Container = styled.div`
   width: 100%;
@@ -14,6 +15,14 @@ const Container = styled.div`
 const Wrap = styled.div`
   width: 50%;
   height: 70%;
+  @media screen and ${responsive.mobile} {
+    width: 90%;
+    max-width: 500px;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    width: 100%;
+    max-width: 500px;
+  }
 `;
 
 const MapBox = styled.div`

@@ -27,6 +27,16 @@ const Container = styled.div`
     min-width: 600px;
     height: 65%;
   }
+  @media screen and ${responsive.mobile} {
+    width: 450px;
+    min-width: 450px;
+    height: 60%;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    width: 350px;
+    min-width: 350px;
+    height: 50%;
+  }
 `;
 
 const Title = styled.div`
@@ -43,6 +53,11 @@ const Title = styled.div`
   @media screen and ${responsive.tablet} {
     h1 {
       font-size: 26px;
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    h1 {
+      font-size: 20px;
     }
   }
 `;
@@ -117,6 +132,32 @@ const Option = styled.div`
           font-size: 10px;
         }
       }
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    .option_title {
+      font-size: 12px;
+    }
+    .option_content {
+      font-size: 12px;
+      gap: 5px;
+      .option_payment {
+        label {
+          font-size: 8px;
+        }
+      }
+    }
+    .option_content_select {
+      height: 20px;
+      font-size: 10px;
+    }
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    .option_content {
+      gap: 0px;
+    }
+    .option_content_select {
+      font-size: 9px;
     }
   }
 `;

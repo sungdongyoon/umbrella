@@ -26,6 +26,14 @@ const Wrap = styled.div`
     width: 600px;
     min-width: 600px;
   }
+  @media screen and ${responsive.mobile} {
+    width: 400px;
+    min-width: 400px;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    width: 300px;
+    min-width: 300px;
+  }
 `;
 
 const Title = styled.div`
@@ -36,6 +44,9 @@ const Title = styled.div`
   margin-bottom: 30px;
   padding-bottom: 10px;
   border-bottom: 3px solid #87C700;
+  @media screen and ${responsive.mobile} {
+    font-size: 26px;
+  }
 `;
 
 const List = styled.div`
