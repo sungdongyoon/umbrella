@@ -23,6 +23,11 @@ const Wrap = styled.div`
     width: 500px;
     min-width: 500px;
   }
+  @media screen and ${responsive.mobile} {
+    width: 350px;
+    min-width: 350px;
+    height: 45%;
+  }
   @media screen and ${responsive.iphone12Pro} {
     width: 300px;
     min-width: 300px;
@@ -47,6 +52,11 @@ const LoginTitle = styled.div`
   @media screen and ${responsive.tablet} {
     h1 {
       font-size: 26px;
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    h1 {
+      font-size: 22px;
     }
   }
   @media screen and ${responsive.iphone12Pro} {
@@ -94,7 +104,7 @@ const SelectMember = styled.div`
       }
     }
   }
-  @media screen and ${responsive.iphone12Pro} {
+  @media screen and ${responsive.mobile} {
     div {
       span {
         font-size: 12px;
@@ -116,6 +126,9 @@ const Join = styled.div`
   @media screen and ${responsive.tablet} {
     font-size: 11px;
   }
+  @media screen and ${responsive.mobile} {
+    font-size: 10px;
+  }
   @media screen and ${responsive.iphone12Pro} {
     font-size: 8px;
   }
@@ -136,6 +149,9 @@ const SearchIdPw = styled.div`
   }
   @media screen and ${responsive.tablet} {
     font-size: 11px;
+  }
+  @media screen and ${responsive.mobile} {
+    font-size: 10px;
   }
   @media screen and ${responsive.iphone12Pro} {
     font-size: 8px;

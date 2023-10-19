@@ -32,6 +32,12 @@ const LoginWrap = styled.div`
     letter-spacing: 3px;
     cursor: pointer;
   }
+  @media screen and ${responsive.mobile} {
+    width: 60%;
+    button {
+      font-size: 12px;
+    }
+  }
   @media screen and ${responsive.iphone12Pro} {
     width: 70%;
   }
@@ -55,7 +61,7 @@ const InputWrap = styled.div`
       border: 2px solid #87C700;
     }
   }
-  @media screen and ${responsive.iphone12Pro} {
+  @media screen and ${responsive.mobile} {
     label {
       font-size: 16px;
     }

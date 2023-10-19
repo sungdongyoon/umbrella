@@ -31,7 +31,7 @@ const Item = styled.div`
     height: 60px;
     cursor: pointer;
   }
-  @media screen and ${responsive.iphone12Pro} {
+  @media screen and ${responsive.mobile} {
     img {
       width: 40px;
       height: 40px;
