@@ -25,6 +25,9 @@ const Comment = styled.div`
   height: 20%;
   box-shadow: 0px 10px 10px #ccc;
   padding: 50px 0;
+  @media screen and ${responsive.mobile} {
+    padding: 20px 0;
+  }
 `;
 
 const Title = styled.h1`
@@ -83,6 +86,12 @@ const HowTo = styled.div`
   }
   @media screen and ${responsive.tablet} {
     width: 90%;
+  }
+  @media screen and ${responsive.mobile} {
+    flex-direction: column;
+  }
+  @media screen and ${responsive.mobile} {
+    width: 100%;
   }
 `;
 
@@ -168,6 +177,19 @@ const HowToRentReturn = styled.div`
           width: 80px;
           height: 80px;
           font-size: 8px;
+        }
+      }
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    width: 100%;
+    .howToWrap {
+      align-items: center;
+      .howToContent {
+        div {
+          width: 85px;
+          height: 85px;
+          font-size: 9px;
         }
       }
     }
