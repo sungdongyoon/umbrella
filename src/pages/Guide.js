@@ -90,7 +90,7 @@ const HowTo = styled.div`
   @media screen and ${responsive.mobile} {
     flex-direction: column;
   }
-  @media screen and ${responsive.mobile} {
+  @media screen and ${responsive.iphone12Pro} {
     width: 100%;
   }
 `;

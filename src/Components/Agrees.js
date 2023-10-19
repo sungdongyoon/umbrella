@@ -11,6 +11,7 @@ const AgreeWrap = styled.div`
   border-right: none;
   display: flex;
   flex-direction: column;
+  gap: 10px;
 `;
 
 const Agree = styled.div`
@@ -22,6 +23,11 @@ const Agree = styled.div`
   @media screen and ${responsive.laptop} {
     label {
       font-size: 11px;
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    label {
+      font-size: 10px;
     }
   }
 `;

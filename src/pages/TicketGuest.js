@@ -30,6 +30,13 @@ const Wrap = styled.div`
     min-width: 600px;
     height: 60%;
   }
+  @media screen and ${responsive.mobile} {
+    min-width: 400px;
+    height: 65%;
+  }
+  @media screen and ${responsive.iphone12Pro} {
+    min-width: 350px;
+  }
 `;
 
 const Title = styled.h1`
@@ -45,6 +52,9 @@ const Title = styled.h1`
   border-bottom: 3px solid #87C700;
   @media screen and ${responsive.tablet} {
     font-size: 26px;
+  }
+  @media screen and ${responsive.mobile} {
+    font-size: 20px;
   }
 `;
 
@@ -128,6 +138,24 @@ const Option = styled.div`
     }
     .option_content {
       font-size: 14px;
+    }
+  }
+  @media screen and ${responsive.mobile} {
+    .option_title {
+      font-size: 12px;
+    }
+    .option_content {
+      font-size: 12px;
+      padding: 0 15px;
+      input[type="number"] {
+        width: 50%;
+        font-size: 12px;
+      }
+      .option_payment {
+        label {
+          font-size: 8px;
+        }
+      }
     }
   }
 `;

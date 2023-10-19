@@ -20,15 +20,10 @@ const Wrap = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  // @media screen and ${responsive.laptop} {
-  //   border: 2px solid red;
-  // }
-  // @media screen and ${responsive.tablet} {
-  //   border: 2px solid orange;
-  // }
-  // @media screen and ${responsive.mobile} {
-  //   border: 2px solid yellow;
-  // }
+  @media screen and ${responsive.mobile} {
+    flex-direction: column;
+    gap: 30px;
+  }
 `;
 
 const SelectMember = styled.div`
