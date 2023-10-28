@@ -28,10 +28,9 @@ const Kakao = () => {
   const getBikeData = async() => {
     let res = await fetch(`http://openapi.seoul.go.kr:8088/${BIKE_API_KEY}/json/tbCycleStationInfo/1/200/`);
     let data = await res.json();
-    console.log(data);
     setBikeData(data.stationInfo.row);
   }
-
+  
   useEffect(() => {
     getBikeData();
   }, []);
@@ -80,7 +79,6 @@ const Kakao = () => {
         isLoading: false,
       }))
     }
-    console.log("position", position)
   }, [position.isLoading]);
 
   return (
