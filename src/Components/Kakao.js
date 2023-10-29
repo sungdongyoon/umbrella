@@ -3,6 +3,7 @@ import { Map, MapMarker, MapTypeControl, ZoomControl} from 'react-kakao-maps-sdk
 import EventMarker from './EventMarker';
 import { getMapImg } from './util';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const Button = styled.button`
   width: 60px;
@@ -25,14 +26,18 @@ const Kakao = () => {
   const BIKE_API_KEY = process.env.REACT_APP_BIKE_API;
 
   const [bikeData, setBikeData] = useState([]);
-  const getBikeData = async() => {
-    let res = await fetch(`http://openapi.seoul.go.kr:8088/${BIKE_API_KEY}/json/tbCycleStationInfo/1/200/`);
-    let data = await res.json();
-    setBikeData(data.stationInfo.row);
-  }
   
   useEffect(() => {
-    getBikeData();
+    const getData = async () => {
+      axios.get(`http://openapi.seoul.go.kr:8088/${BIKE_API_KEY}/json/tbCycleStationInfo/1/200/`)
+        .then((res) => {
+          setBikeData(res.data.stationInfo.row);
+        })
+        .catch((error) => {
+          console.log("데이터를 불러올 수 없습니다.", error);
+        });
+    };  
+    getData();
   }, []);
 
   // 카카오 지도
@@ -100,7 +105,7 @@ const Kakao = () => {
         }}/>
       )}
       {bikeData.map((position, idx) => (
-        <EventMarker position={position}/>
+        <EventMarker key={idx} position={position}/>
       ))}
       <MapTypeControl position={"TOPRIGHT"} />
       <ZoomControl position={"RIGHT"} />

@@ -7,8 +7,8 @@ module.exports = function (app) {
       target: "http://openapi.seoul.go.kr:8088",
       changeOrigin: true,
       pathRewrite: {
-        "^/api": `/${process.env.REACT_APP_BIKE_API}/json/tbCycleStationInfo/1/200/`
-      }
+        '^/api': ''
+    }
     })
   );
 };
