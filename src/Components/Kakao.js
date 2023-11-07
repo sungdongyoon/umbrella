@@ -28,13 +28,13 @@ const Kakao = () => {
   const [bikeData, setBikeData] = useState([]);
   
   useEffect(() => {
-    const getData = async () => {
-      axios.get(`http://openapi.seoul.go.kr:8088/${BIKE_API_KEY}/json/tbCycleStationInfo/1/200/`)
+    const getData = () => {
+      axios.get(`https://us-central1-umbrella-react-a1eb1.cloudfunctions.net/getDataFromHTTP`)
         .then((res) => {
           setBikeData(res.data.stationInfo.row);
         })
         .catch((error) => {
-          console.log("데이터를 불러올 수 없습니다.", error);
+          console.log("대여소 정보를 출력할 수 없습니다.", error);
         });
     };  
     getData();

@@ -1,5 +1,8 @@
 {
   "projects": {
+    "umbrella-react": "umbrella-react-a1eb1",
     "default": "umbrella-react-a1eb1"
-  }
+  },
+  "targets": {},
+  "etags": {}
 }
